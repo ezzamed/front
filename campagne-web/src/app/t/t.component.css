@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+.content-table {
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  width:50%;
+ top:5px;
+
+  margin-left:18%;
+
+
+  position: relative;
+  top: 50px; left: 10px;
+}
+.se{
+ position: absolute;
+   top:11%;
+   left:83%;
+   height:50px;
+   background-color:#F39C12 ;
+   width:205px;
+
+    border:none;
+
+}
+
+.content-table thead tr {
+  background-color: #028f90;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 20px 25px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.es {
+ border-collapse : separate;
+ border-spacing : 30px;
+  margin-left:18%;
+  text-align:center;
+  font-family:  'Montserrat';
+
+ position: relative;
+  top: 50px; left: 10px;
+}
+.g1{
+ font-size: 20px;
+ color: #028f90;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header2 {
+	position: fixed;
+	height:100px;
+}
+
+.header2 .logo {
+	line-height:100px;
+	font-size:30px;
+}
+
+.header2 nav {
+	line-height:100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

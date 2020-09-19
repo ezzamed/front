@@ -1,0 +1,27 @@
+
+<div class="row" *ngIf="moughataas">
+  <div *ngFor="let m of moughataas._embedded.moughataas">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading "> {{m.moughataaname}}</div>
+        <div class="panel-body" *ngIf="m.vaccinations" >
+          <div class="row"  >
+            <div class="col-md-6">
+              <ul  class="list-group">
+                <li class="list-group-item" >l77</li>
+                <li *ngFor="let v of m.vaccinations._embedded.vaccinations">
+                  {{v.nombre}}
+
+                </li>
+
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

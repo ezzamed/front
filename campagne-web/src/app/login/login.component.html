@@ -1,0 +1,39 @@
+
+
+  <img class="wave" src="assets/img/wave.png">
+  <div class="container">
+    <div class="img">
+      <img src="assets/img/bg.svg">
+    </div>
+    <div class="login-content">
+      <form  #f="ngForm"  (ngSubmit)="onLogin(f.value)">
+        <img src="assets/img/avatar.svg">
+        <h2 class="title">Bienvenue</h2>
+        <div class="input-div one">
+          <div class="i">
+            <i ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z"/>
+            </svg></i>
+          </div>
+          <div class="div">
+
+            <input type="text" class="input" name="username" ngModel>
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <i ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-lock2-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM7 6a1 1 0 0 1 2 0v1H7V6zm3 0v1.076c.54.166 1 .597 1 1.224v2.4c0 .816-.781 1.3-1.5 1.3h-3c-.719 0-1.5-.484-1.5-1.3V8.3c0-.627.46-1.058 1-1.224V6a2 2 0 1 1 4 0z"/>
+            </svg></i>
+          </div>
+          <div class="div">
+
+            <input type="password" class="input" name="password" ngModel>
+          </div>
+        </div>
+        <a href="#">Mot de passe oublié?</a>
+        <input type="submit" class="btn" value="Connexion">
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="src/assets/main/monscri.js"></script>

@@ -1,0 +1,26 @@
+<div>
+  <table id="table" class="content-table" *ngIf="moughataas" >
+    <thead> <tr class="active-row"><th>Nom</th><th>pourcentage</th><th></th><th></th><th></th></tr> </thead>
+    <tbody> <tr *ngFor="let m of moughataas._embedded.moughataas" >
+
+      <td>{{m.moughataaname}}</td>
+      <li *ngIf="m.enquetes" ></li>
+
+
+      <td *ngFor="let e of m.enquetes._embedded.enquetes">
+
+        {{e.popvisee}}
+
+
+     </td>
+
+    </tr>
+
+    </tbody>
+  </table>
+
+
+
+</div>
+<button (click)="download()">Telecharger </button>
+

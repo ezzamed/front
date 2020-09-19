@@ -1,0 +1,111 @@
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Campagne De Vaccination</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active" ><a routerLink="/"><i class="fa fa-fw fa-home"></i>Accueil</a></li>
+      <li class="dropdown" *ngIf="isAuthenticated()">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-poll"></i>Gestion
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" >
+      <li *ngIf="isAdmin()"><a routerLink="/demogs">Gestion Des Demographies</a></li>
+      <li><a routerLink="/nouveau-demogs">Ajout</a></li>
+      <li><a routerLink="/wilaya">Gestion Des Enquetes</a></li>
+      <li><a routerLink="/mychart">Gestion Des Utilisateurs</a></li>
+      <li><a routerLink="/donneechart">Gestion</a></li>
+          <li><a routerLink="/essai">essai</a></li>
+          <li><a routerLink="/essai2">essai2</a></li>
+          <li><a routerLink="/nouveau-campagne">ajout campagne</a></li>
+          <li><a routerLink="/dashboard">dash</a></li>
+          <li><a routerLink="/users">Gestion Utilisateurs</a></li>
+          <li><a routerLink="/pdfdown">pdf</a></li>
+          <li><a routerLink="/exportpdf">pdf</a></li>
+          <li><a routerLink="/upload">pdf</a></li>
+          <li><a routerLink="/campagnes">campagnes</a></li>
+    </ul>
+    </li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
+      <li><a *ngIf="!isAuthenticated()"routerLink="/login">Connecter</a></li>
+      <li><a *ngIf="isAuthenticated()" (click)="logOut()">Deconnecter</a></li>
+    </ul>
+
+  </div>
+</nav>
+<router-outlet>
+
+</router-outlet>
+
+
+<div class="main_container" *ngIf="isAuthenticated()">
+  <div class="sidebar">
+    <div class="sidebar__inner">
+      <div class="profile">
+        <div class="img">
+          <img src="assets/img/my.png" alt="image">
+        </div>
+        <div class="profile_info">
+          <p>Campagne de</p>
+          <p class="profile_name">Vaccinations</p>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <a href="#" class="active">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <rect width="4" height="5" x="1" y="10" rx="1"/>
+              <rect width="4" height="9" x="6" y="6" rx="1"/>
+              <rect width="4" height="14" x="11" y="1" rx="1"/>
+            </svg>
+            Statistiques
+          </a>
+        </li>
+        <li>
+          <a href="#">
+
+            <span class="title"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
+  <path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+</svg>Synthese</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+
+            <span class="title">Carte Geographique</span>
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

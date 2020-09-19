@@ -1,0 +1,56 @@
+
+
+<div class="container">
+  <div class="card"></div>
+  <div class="card">
+    <h2 class="title">Nouvelle Demographie</h2>
+    <form #f="ngForm" (ngSubmit)="onSaveDemog(f.value)">
+      <div class="input-container">
+        <input type="text" required="required"  name="name" ngModel />
+        <label for="#{label}">Nom</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="#{label}" required="required" name="date" ngModel/>
+        <label for="#{label}">Année</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="#{label}" required="required"  name="annee" ngModel/>
+        <label for="#{label}">Date</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button><span>Ajouter</span></button>
+      </div>
+
+    </form>
+  </div>
+  <div class="card alt">
+    <div class="toggle"></div>
+    <h1 class="title">Register
+      <div class="close"></div>
+    </h1>
+    <form>
+      <div class="input-container">
+        <input type="#{type}" id="#{label}" required="required"/>
+        <label for="#{label}">Nom</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="#{type}" id="#{label}" required="required"/>
+        <label for="#{label}">Année</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="#{type}" id="#{label}" required="required"/>
+        <label for="#{label}">Date</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button><span>Next</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+

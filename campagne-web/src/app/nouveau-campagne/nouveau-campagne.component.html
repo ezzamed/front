@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Nouvelle campagne</div>
+      <div class="panel-body" *ngIf="demographies">
+        <form #f="ngForm" (ngSubmit)="onSaveCampagne(f.value)">
+          <div class="form-group">
+            <label class="control-label">Nom</label>
+            <input class="form-control" type="text" name="name" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Date</label>
+            <input class="form-control" type="text" name="date" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">statut</label>
+            <input class="form-control" type="text" name="statut" ngModel>
+          </div>
+          <div class="form-group">
+
+            <select id="pref" name="demographie" >
+              [(ngModel)]="pref" class="form-control">
+              <option *ngFor="let w of demographies._embedded.demographies" [value]="w.name">{{w.name}}></option>
+            </select>
+
+
+          </div>
+          <button class="btn btn-success" type="submit" >Enregistrer</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
