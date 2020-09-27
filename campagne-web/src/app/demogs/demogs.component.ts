@@ -98,7 +98,7 @@ onSaveDonneedemogra(){
         this.router.navigateByUrl("/edit-demog/"+btoa(url));
 
          }
-         onGetdonnee(d){
+         /*onGetdonnee(d){
          console.log(d);
          this.de=d;
          this.capservice.getEnquetes(this.de)
@@ -140,9 +140,9 @@ onSaveDonneedemogra(){
                        })
 
 
-         console.log(formData);*/
+         console.log(formData);
 
-}
+}*/
 nouvdemo(){
 this.router.navigateByUrl("/nouveau-demogs")}
 onselect(d){

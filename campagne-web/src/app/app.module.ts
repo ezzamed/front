@@ -29,7 +29,8 @@ import { UploadComponent } from './upload/upload.component';
 import { EnquetesComponent } from './enquetes/enquetes.component';
 import { CampagnesComponent } from './campagnes/campagnes.component';
 import { NouveauEnqueteComponent } from './nouveau-enquete/nouveau-enquete.component';
-
+import { GoogleMapsModule } from '@angular/google-maps'
+import { GelocaliComponent } from './gelocali/gelocali.component';
 
 @NgModule({
   declarations: [
@@ -58,11 +59,12 @@ import { NouveauEnqueteComponent } from './nouveau-enquete/nouveau-enquete.compo
     EnquetesComponent,
     CampagnesComponent,
     NouveauEnqueteComponent,
+    GelocaliComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule, ChartModule
+    AppRoutingModule, HttpClientModule, FormsModule, ChartModule,GoogleMapsModule
    ],
   providers: [],
   bootstrap: [AppComponent]

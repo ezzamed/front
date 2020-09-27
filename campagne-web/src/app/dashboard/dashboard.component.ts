@@ -53,7 +53,7 @@ export class DashboardComponent  {
                 this.capservice.getchartdemo(this.camp)
                     .subscribe(data=>{
                     this.demographie=data;
-                    console.log(this.demographie);
+                    //console.log(this.demographie);
                  //je recupere les enquetes de cette demographie
                 this.capservice.getcharten(this.demographie)
                 .subscribe(data=>{
@@ -91,9 +91,9 @@ export class DashboardComponent  {
 
                                         }
  //console.log(this.pourcentageReel(this.va,this.pop));
-                                                                                               datasets1.data.push(this.result);
-                                                                                               console.log(this.result);
-                                                                                                   this.moughataasData.datasets.push(datasets1);
+                      datasets1.data.push(this.result);
+                      console.log(this.result);
+                      this.moughataasData.datasets.push(datasets1);
 
 
 

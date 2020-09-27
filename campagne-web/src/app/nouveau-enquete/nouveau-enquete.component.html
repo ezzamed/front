@@ -1,15 +1,30 @@
 
 
-<div class="container">
+<div class="container"  *ngIf="wilayas">
   <div class="card"></div>
-  <div class="card">
+  <div class="card" >
     <h2 class="title">Nouvelle Enquete</h2>
-    <form  #f="ngForm" (ngSubmit)="onSavedonnee(f.value)">
+    <form  #f="ngForm" (ngSubmit)="onSavedonnee(f.value)"  >
       <div class="input-container">
+        <select class="form-control" name="wilaya" ngModel required>
+
+          <option *ngFor="let w of wilayas._embedded.wilayas" [ngValue]="w._links.self.href">{{w.name}}</option>
+        </select>
+      </div>
+      <div *ngIf="moughataas">
+      <div class="input-container">
+        <select class="form-control" name="moughataa" ngModel required >
+
+          <option *ngFor="let m of moughataas._embedded.moughataas" [ngValue]="m._links.self.href">{{m.moughataaname}}></option>
+        </select>
+      </div>
+      </div>
+      <div  class="input-container">
         <input type="text" required="required"  name="nb011" ngModel />
         <label for="#{label}">Nombre 0-11 mois</label>
         <div class="bar"></div>
       </div>
+
       <div class="input-container">
         <input type="text" id="#{label}" required="required" name="nb1259" ngModel/>
         <label for="#{label}">Nombre 12-59 mois</label>

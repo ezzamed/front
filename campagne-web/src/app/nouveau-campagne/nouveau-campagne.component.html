@@ -1,34 +1,42 @@
-<div class="container">
-  <div class="col-md-6 col-sm-6 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">Nouvelle campagne</div>
-      <div class="panel-body" *ngIf="demographies">
-        <form #f="ngForm" (ngSubmit)="onSaveCampagne(f.value)">
-          <div class="form-group">
-            <label class="control-label">Nom</label>
-            <input class="form-control" type="text" name="name" ngModel>
-          </div>
-          <div class="form-group">
-            <label class="control-label">Date</label>
-            <input class="form-control" type="text" name="date" ngModel>
-          </div>
-          <div class="form-group">
-            <label class="control-label">statut</label>
-            <input class="form-control" type="text" name="statut" ngModel>
-          </div>
-          <div class="form-group">
 
-            <select id="pref" name="demographie" >
-              [(ngModel)]="pref" class="form-control">
-              <option *ngFor="let w of demographies._embedded.demographies" [value]="w.name">{{w.name}}></option>
-            </select>
-
-
-          </div>
-          <button class="btn btn-success" type="submit" >Enregistrer</button>
-
-        </form>
+<div class="container" *ngIf="demographies">
+  <div class="card"></div>
+  <div class="card">
+    <h2 class="title">Nouveau Utilisateur</h2>
+    <form #f="ngForm" (ngSubmit)="onSaveCampagne(f.value)">
+      <div class="input-container">
+        <input type="text" required="required"  name="nom" ngModel />
+        <label for="#{label}">Nom</label>
+        <div class="bar"></div>
       </div>
-    </div>
+      <div class="input-container">
+        <input type="text" id="#{label}" required="required" name="date" ngModel/>
+        <label for="#{label}">Date</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="#{label}" required="required"  name="staut" ngModel/>
+        <label for="#{label}">Statut</label>
+        <div class="bar"></div>
+      </div>
+      <div >
+
+
+        <div class="input-container">
+          <select class="form-control" name="demographie" ngModel required>
+
+            <option *ngFor="let d of demographies._embedded.demographies" [ngValue]="d._links.self.href">{{d.name}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="button-container">
+        <button><span>Ajouter</span></button>
+      </div>
+
+    </form>
   </div>
+
 </div>
+
+

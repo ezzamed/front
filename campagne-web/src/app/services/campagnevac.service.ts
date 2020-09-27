@@ -131,6 +131,9 @@ getchartvaccinations(moughata){
 getchartmoughataa(h){
 return this.httpClient.get(h._links.moughataa.href);
 }
+getmoughataawilayaa(wilaya){
+return this.httpClient.get(wilaya._links.moughataas.href);
+}
 onGetwilayadropdown(){
  return this.httpClient.get("http://localhost:8080/wilayas");
 }
@@ -215,5 +218,15 @@ public getdemograph():Observable<Demographie>{
                            return this.httpClient.get(url+"?projection=v1");
 
     }
+
+    saveEnquetetoDemo(dataForm){
+      return this.httpClient.post(this.host+"/AjouterDonnesDemographie",dataForm);
+    }
+    public saveen(url,dataForm):Observable<Enquete>{
+
+           return this.httpClient.post<Enquete>(url,dataForm);
+          }
+
+
 
 }

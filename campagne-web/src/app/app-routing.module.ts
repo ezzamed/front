@@ -22,6 +22,7 @@ import { UploadComponent } from './upload/upload.component';
 import { EnquetesComponent } from './enquetes/enquetes.component';
 import { CampagnesComponent } from './campagnes/campagnes.component';
 import { NouveauEnqueteComponent } from './nouveau-enquete/nouveau-enquete.component';
+import { GelocaliComponent } from './gelocali/gelocali.component';
 const routes: Routes = [
 {
 path:"demogs",component:DemogsComponent
@@ -88,6 +89,9 @@ path:"campagnes",component:CampagnesComponent
 },
 {
 path:"nouveau-enquete/:id",component:NouveauEnqueteComponent
+},
+{
+path:"gelocali",component:GelocaliComponent
 },
 
 

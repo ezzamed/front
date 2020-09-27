@@ -5,7 +5,7 @@
 
 <div>
 
-  <table class="es">
+  <table class="es" *ngIf="demo">
     <tr>
       <td> <div class="g1">Information de la Demographie:{{demo.id}}</div></td>
 
@@ -19,7 +19,7 @@
 <div>
   <table  class="content-table" *ngIf="enquetes" >
 
-    <thead> <tr><th>ID</th><th>nb011</th><th>nb1259</th><th>popvisee</th><th>Moughataa</th><th>Details</th> <th>Supprimer</th> <th>Modifier</th></tr></thead>
+    <thead> <tr><th>ID</th><th>0 à 11mois</th><th></th><th>12 à 59mois</th><th>Population totale viseé</th><th>Moughataa</th><th>Details</th> <th>Supprimer</th> <th>Editer</th></tr></thead>
     <tbody><tr *ngFor="let enquete of enquetes._embedded.enquetes" >
 
       <td>{{enquete.id}}</td>
