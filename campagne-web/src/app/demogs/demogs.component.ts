@@ -83,6 +83,8 @@ onSaveDonneedemogra(){
       });
       }
       Deletedomogs(d){
+
+
             let conf=confirm("etes vous sur");
             if(conf)
             this.capservice.deleteRessource(d._links.self.href)
@@ -93,6 +95,14 @@ onSaveDonneedemogra(){
             })
 
             }
+            /*supprimer(d){
+            his.capservice.deletemethod(d.id)
+                        .subscribe(data=>{
+                        this.Chercherdemogs();
+                        },err=>{
+                        console.log(err);
+                        })
+            }*/
         Editdomogs(d){
         let url=d._links.self.href;
         this.router.navigateByUrl("/edit-demog/"+btoa(url));

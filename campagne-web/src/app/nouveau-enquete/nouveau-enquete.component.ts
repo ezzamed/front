@@ -65,15 +65,16 @@ public demographies;
              de=this.demo.id;
 
              dataForm.de=de;
+             console.log(dataForm);
 
-                   this.capservice.saveen(this.capservice.host+"/AjouterDonnesDemographie",dataForm)
-                   .subscribe(resu=>{
-                   console.log(resu);
+                  /* this.capservice.saveen(this.capservice.host+"/AjouterDonnesDemographie",dataForm)
+                   .subscribe(data=>{
+                   console.log(data);
                    //this.router.navigateByUrl("/demogs")
-                   this.curentenquete=resu;
+                   this.curentenquete=data;
                    },err=>{
                    console.log(err);
-                   })
+                   })*/
 
 
          /* this.capservice.saveEnquetetoDemo(dataForm)

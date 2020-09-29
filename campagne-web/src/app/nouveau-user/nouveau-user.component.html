@@ -1,6 +1,6 @@
 
 
-<div class="container">
+<div class="container" *ngIf="appRoles">
   <div class="card"></div>
   <div class="card">
     <h2 class="title">Nouveau Utilisateur</h2>
@@ -20,7 +20,17 @@
         <label for="#{label}">Email</label>
         <div class="bar"></div>
       </div>
-      <div class="button-container">
+
+
+
+        <div class="input-container">
+          <select class="form-control" name="role" ngModel required>
+
+            <option *ngFor="let r of appRoles" [ngValue]="r">{{r.roleName}}</option>
+          </select>
+        </div>
+
+        <div class="button-container">
         <button><span>Ajouter</span></button>
       </div>
 

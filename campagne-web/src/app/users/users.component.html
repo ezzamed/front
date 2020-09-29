@@ -26,7 +26,7 @@
     <div>
       <table  class="content-table" *ngIf="appUsers" >
         <thead> <tr class="active-row"><th>ID</th><th>Nom</th><th></th><th></th><th></th></tr> </thead>
-        <tbody> <tr *ngFor="let a of appUsers._embedded.appUsers" >
+        <tbody> <tr *ngFor="let a of appUsers" >
           <td>{{a.id}}</td>
           <td>{{a.username}}</td>
 

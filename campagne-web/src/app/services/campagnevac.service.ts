@@ -1,6 +1,9 @@
 import { Demographie } from '../model/demographie.model';
 import { Campagne } from '../model/campagne.model';
 import { Enquete } from '../model/enquete.model';
+import { AppRole } from '../model/approle.model';
+import { Moughataa } from '../model/moughataa.model';
+import { Wilaya } from '../model/wilaya.model';
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { AppUser } from '../model/appUser.model';
@@ -32,8 +35,33 @@ export class CampagnevacService {
   return this.httpClient.get(this.host+"/demographies?page="+page+"&size="+size);
   }
    public getusers(){
-        return this.httpClient.get("http://localhost:8080/appUsers");
+        return this.httpClient.get("http://localhost:8080/allUsers");
     }
+    public onGetroles(){
+     return this.httpClient.get("http://localhost:8080/allRoles");
+    }
+     public onGetwilayas(){
+         return this.httpClient.get("http://localhost:8080/allWilayas");
+        }
+          public onGetVaccinations(){
+                 return this.httpClient.get("http://localhost:8080/allVaccinations");
+                }
+     public postroles(url,data):Observable<AppRole>{
+                   return this.httpClient.post<AppRole>(url,data);
+                  }
+     public postmoughata(url,data):Observable<Moughataa>{
+           return this.httpClient.post<Moughataa>(url,data);
+                                    }
+     public postwilaya(url,data):Observable<Wilaya>{
+                return this.httpClient.post<Wilaya>(url,data);
+                                         }
+      public onGetmoughataas(){
+          return this.httpClient.get("http://localhost:8080/allMoughataas");
+         }
+         /*
+         deletemethod(){
+           return this.httpClient.post("http://localhost:8080/supprimer/id");
+         }*/
     getcampagnes(){
     return this.httpClient.get("http://localhost:8080/campagnes");
     }

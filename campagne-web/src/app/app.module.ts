@@ -31,6 +31,11 @@ import { CampagnesComponent } from './campagnes/campagnes.component';
 import { NouveauEnqueteComponent } from './nouveau-enquete/nouveau-enquete.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { GelocaliComponent } from './gelocali/gelocali.component';
+import { GestionrolesComponent } from './gestionroles/gestionroles.component';
+import { GestionmoughataasComponent } from './gestionmoughataas/gestionmoughataas.component';
+import { GestionwilayasComponent } from './gestionwilayas/gestionwilayas.component';
+import { GestionvaccinationsComponent } from './gestionvaccinations/gestionvaccinations.component';
+import { GestionComponent } from './gestion/gestion.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,11 @@ import { GelocaliComponent } from './gelocali/gelocali.component';
     CampagnesComponent,
     NouveauEnqueteComponent,
     GelocaliComponent,
+    GestionrolesComponent,
+    GestionmoughataasComponent,
+    GestionwilayasComponent,
+    GestionvaccinationsComponent,
+    GestionComponent,
 
   ],
   imports: [

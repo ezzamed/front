@@ -8,14 +8,14 @@
       <div class="input-container">
         <select class="form-control" name="wilaya" ngModel required>
 
-          <option *ngFor="let w of wilayas._embedded.wilayas" [ngValue]="w._links.self.href">{{w.name}}</option>
+          <option *ngFor="let w of wilayas._embedded.wilayas" [ngValue]="w">{{w.name}}</option>
         </select>
       </div>
       <div *ngIf="moughataas">
       <div class="input-container">
         <select class="form-control" name="moughataa" ngModel required >
 
-          <option *ngFor="let m of moughataas._embedded.moughataas" [ngValue]="m._links.self.href">{{m.moughataaname}}></option>
+          <option *ngFor="let m of moughataas._embedded.moughataas" [ngValue]="m">{{m.moughataaname}}></option>
         </select>
       </div>
       </div>
