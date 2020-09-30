@@ -90,8 +90,9 @@ public UpdatRessource(url,data):Observable<Demographie>{
 }
 
 public getwilaya(){
-  return this.httpClient.get(this.host+"/wilayas");
-  }
+  //return this.httpClient.get(this.host+"/wilayas");
+  return this.httpClient.get(this.host+"/allWilayas");
+}
   getmoughata(w){
   return this.httpClient.get(w._links.moughataas.href);
   }
@@ -159,8 +160,8 @@ getchartvaccinations(moughata){
 getchartmoughataa(h){
 return this.httpClient.get(h._links.moughataa.href);
 }
-getmoughataawilayaa(wilaya){
-return this.httpClient.get(wilaya._links.moughataas.href);
+getmoughataawilayaa(idWilaya){
+return this.httpClient.get(this.host+"/wilayaMoughataa/"+idWilaya);
 }
 onGetwilayadropdown(){
  return this.httpClient.get("http://localhost:8080/wilayas");

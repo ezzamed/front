@@ -53,9 +53,9 @@ export class UploadComponent  {
         if (curruntRecord.length == headerLength) {
           let enquete: Enquete = new Enquete();
 
-          enquete.nb011 = curruntRecord[0];
-          enquete.nb1259 = curruntRecord[1];
-          enquete.popvisee = curruntRecord[2];
+          enquete.nb011 = Number.parseInt(curruntRecord[0].toString());
+          enquete.nb1259 = Number.parseInt(curruntRecord[1]);
+          enquete.popvisee = Number.parseInt(curruntRecord[2]);
            csvArr.push(enquete);
         }
       }

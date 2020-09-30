@@ -4,6 +4,7 @@ import { CampagnevacService } from '../services/campagnevac.service';
 import { Enquete } from '../model/enquete.model';
 import { ActivatedRoute } from '@angular/router';
 import { Demographie } from '../model/demographie.model';
+import { DemographieService } from '../services/DemographieService';
 
 @Component({
   selector: 'app-nouveau-enquete',
@@ -20,24 +21,27 @@ public demographies;
  public wilayas;
  curentenquete:Enquete;
 
+ public selectedWilayaId;
+ public selectedMoughataaId;
 
-  constructor(private capservice:CampagnevacService,private router:Router, private activatedRoute: ActivatedRoute) { }
+
+  constructor(private capservice:CampagnevacService,private router:Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService) { }
 
   ngOnInit(): void {
   this.capservice.getwilaya()
                         .subscribe(data=>{
                          this.wilayas=data;
                          console.log(this.wilayas);
-                         this.wilayas._embedded.wilayas.forEach(wilaya=>{
-                                  this.capservice.getmoughataawilayaa(wilaya)
+                        });
+                                                 /*this.wilayas.forEach(wilaya=>{
+                                  this.capservice.getmoughataawilayaa(wilaya.id)
                                   .subscribe(data=>{
                                    this.moughataas=data;
-
                                                           })
                                                            })
                                                             })
 
-
+*/
   this.capservice.getdemograph1()
                      .subscribe(data=>{
                      this.demographies=data;
@@ -54,20 +58,30 @@ public demographies;
 
   })
                   })
-
-
-
-
                   }
-
     onSavedonnee(dataForm){
+      this.wilayas.map((w)=>{
+        if(w.id==this.selectedWilayaId){
+          dataForm.wilaya=null;
+        }
+      })
+      this.moughataas.map((m)=>{
+        if(m.id==this.selectedMoughataaId)
+          dataForm.moughataa = m;
+      })
+      this.demogService.getDemographie(this.demo.id).subscribe((demog)=>{
+        dataForm.demographie = demog;
+        //console.log(dataForm);
+        this.capservice.saveEnquetetoDemo(dataForm).subscribe((res)=>{
+          this.router.navigateByUrl("/t/"+this.activatedRoute.snapshot.params.id);
+        })
+      })
+
+      /*
              let de;
              de=this.demo.id;
-
              dataForm.de=de;
-             console.log(dataForm);
-
-                  /* this.capservice.saveen(this.capservice.host+"/AjouterDonnesDemographie",dataForm)
+                   this.capservice.saveen(this.capservice.host+"/AjouterDonnesDemographie",dataForm)
                    .subscribe(data=>{
                    console.log(data);
                    //this.router.navigateByUrl("/demogs")
@@ -75,8 +89,6 @@ public demographies;
                    },err=>{
                    console.log(err);
                    })*/
-
-
          /* this.capservice.saveEnquetetoDemo(dataForm)
                                  .subscribe(data=>{
 
@@ -84,17 +96,19 @@ public demographies;
                                  console.log(err);
                                  })
                                   console.log( dataForm);*/
-
-
-
-
-
-
-
   }
-   ongetwilayas(){
+  getMoughataas(wilaya){
+    this.selectedWilayaId = wilaya;
+    this.demogService.getWilayaMoughataa(wilaya).subscribe((data)=>{
+      this.moughataas = data;
+      console.log(this.moughataas);
+    })
+  }
 
-                   }
+  setSelectedMoughataa(mgt){
+    console.log(mgt)
+    this.selectedMoughataaId = mgt;
+  }
 
       ajoucsv(){
        this.router.navigateByUrl("/upload")

@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { CampagnevacService } from '../services/campagnevac.service';
 import { Router } from '@angular/router';
+import { DemographieService } from '../services/DemographieService';
 
 @Component({
   selector: 'app-demogs',
@@ -24,7 +25,7 @@ export class DemogsComponent implements OnInit {
  public mode:number=1;
  public de:number=9;
 
-  constructor(private capservice:CampagnevacService ,private router:Router) { }
+  constructor(private capservice:CampagnevacService ,private router:Router, private demogService:DemographieService) { }
 
   ngOnInit(): void {
    /*this.capservice.onGetwilayadropdown()
@@ -83,10 +84,11 @@ onSaveDonneedemogra(){
       });
       }
       Deletedomogs(d){
-
-
             let conf=confirm("etes vous sur");
-            if(conf)
+            if(conf){
+              this.demogService.deleteDemographie(d.id);
+            }
+            /*
             this.capservice.deleteRessource(d._links.self.href)
             .subscribe(data=>{
             this.Chercherdemogs();
@@ -94,8 +96,7 @@ onSaveDonneedemogra(){
             console.log(err);
             })
 
-            }
-            /*supprimer(d){
+            }supprimer(d){
             his.capservice.deletemethod(d.id)
                         .subscribe(data=>{
                         this.Chercherdemogs();
@@ -103,7 +104,9 @@ onSaveDonneedemogra(){
                         console.log(err);
                         })
             }*/
+        }
         Editdomogs(d){
+          //console.log(d);
         let url=d._links.self.href;
         this.router.navigateByUrl("/edit-demog/"+btoa(url));
 

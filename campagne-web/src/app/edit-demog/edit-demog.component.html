@@ -4,7 +4,8 @@
   <div class="card"></div>
   <div class="card">
     <h2 class="title">Editer </h2>
-    <form #f="ngForm" (ngSubmit)="onUpdateDemog(f.value)">
+    <!--<form #f="ngForm" (ngSubmit)="onUpdateDemog(f.value)">-->
+    <form #f="ngForm" (ngSubmit)="onUpdateDemog(curentproduct)">
       <div class="input-container">
         <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.name" />
         <label for="#{label}">Nom</label>
