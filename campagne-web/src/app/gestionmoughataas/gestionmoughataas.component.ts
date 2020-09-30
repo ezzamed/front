@@ -17,7 +17,8 @@ public curent;
    this.capservice.onGetmoughataas()
                     .subscribe(data=>{
                        this.moughataas=data;
-                       console.log(this.moughataas);                },err=>{
+                       console.log(this.moughataas);
+                        },err=>{
                       console.log(err);
                       })
     }
