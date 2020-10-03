@@ -51,8 +51,14 @@
   cursor:pointer
 }
 .c1{
-position: relative;
-  top: 120px; left: 10px;
+  position: absolute;
+     top:11%;
+     left:83%;
+     height:50px;
+     background-color:#F39C12 ;
+     width:205px;
+
+      border:none;
 }
 .ti{
 right:300px;

@@ -34,13 +34,13 @@ export class DemogsComponent implements OnInit {
              })*/
 
 
-              this.capservice.getdemogs(this. currentpage,this.size)
+              this.capservice.getdemogs(this.currentpage,this.size)
                .subscribe(data=>{
 
                  this.totalPages=data["page"].totalPages;
                  this.pages=new Array<number>(this.totalPages);
                  this.demographies=data;
-                 this.mode=2;
+                 //this.mode=2;
                  },err=>{
                  console.log(err);
                  })
@@ -65,7 +65,7 @@ onSaveDonneedemogra(){
   }
   onPagedemogs(i){
   this.currentpage=i;
-  this.onGetdemographie();
+  this.ngOnInit();
   //this.Chercherdemogs();
   }
     onChercher(form: any){

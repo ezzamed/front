@@ -9,13 +9,19 @@ export class DemographieService {
     public api:string = "http://localhost:8080/";
 
     constructor(private httpClient:HttpClient) { }
-    
+
     deleteDemographie(id){
-        this.httpClient.delete(this.api+"supprimerDemographie/"+id).subscribe(); 
+        this.httpClient.delete(this.api+"supprimerDemographie/"+id).subscribe();
     }
     updateDemographie(demog){
-        return this.httpClient.put(this.api+"modifierDemographie", demog).subscribe(); 
+        return this.httpClient.put(this.api+"modifierDemographie", demog).subscribe();
     }
+     deleteEnquete(id){
+            this.httpClient.delete(this.api+"supprimerEnquete/"+id).subscribe();
+        }
+        updateEnquete(enquete){
+            return this.httpClient.put(this.api+"modifierEnquete", enquete).subscribe();
+        }
 
     getDemographie(id){
         return this.httpClient.get(this.api+"getDemographie/"+id);
@@ -24,6 +30,12 @@ export class DemographieService {
     getWilayaMoughataa(id){
         return this.httpClient.get(this.api+"wilayaMoughataa/"+id);
     }
+    deleteUser(id){
+    this.httpClient.delete(this.api+"supprimerUser/"+id).subscribe();
+    }
+    updateUser(user){
+            return this.httpClient.put(this.api+"modifierUser", user).subscribe();
+        }
 
 
 }

@@ -27,8 +27,12 @@ import { GestionrolesComponent } from './gestionroles/gestionroles.component';
 import { GestionmoughataasComponent } from './gestionmoughataas/gestionmoughataas.component';
 import { GestionwilayasComponent } from './gestionwilayas/gestionwilayas.component';
 import { GestionvaccinationsComponent } from './gestionvaccinations/gestionvaccinations.component';
-
-
+import { EditEnqueteComponent } from './edit-enquete/edit-enquete.component';
+import { DetailsenqueteComponent } from './detailsenquete/detailsenquete.component';
+import { GestionComponent } from './gestion/gestion.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { NouveauMoughataaComponent } from './nouveau-moughataa/nouveau-moughataa.component';
+import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.component';
 const routes: Routes = [
 {
 path:"demogs",component:DemogsComponent
@@ -110,6 +114,24 @@ path:"gestionwilayas",component:GestionwilayasComponent
 },
 {
 path:"gestionvaccinations",component:GestionvaccinationsComponent
+},
+{
+path:"edit-enquete/:id",component:EditEnqueteComponent
+},
+{
+path:"detailsenquete/:id",component:DetailsenqueteComponent
+},
+{
+path:"edit-user/:id",component:EditUserComponent
+},
+{
+path:"gestion",component:GestionComponent
+},
+{
+path:"nouveau-moughataa",component:NouveauMoughataaComponent
+},
+{
+path:"gestionvaccins",component:GestionvaccinsComponent
 },
 ];
 

@@ -4,6 +4,7 @@ import { Enquete } from '../model/enquete.model';
 import { AppRole } from '../model/approle.model';
 import { Moughataa } from '../model/moughataa.model';
 import { Wilaya } from '../model/wilaya.model';
+import { Vaccin } from '../model/vaccin.model';
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { AppUser } from '../model/appUser.model';
@@ -49,6 +50,9 @@ export class CampagnevacService {
      public postroles(url,data):Observable<AppRole>{
                    return this.httpClient.post<AppRole>(url,data);
                   }
+       public postvaccins(url,data):Observable<Vaccin>{
+                         return this.httpClient.post<Vaccin>(url,data);
+                        }
      public postmoughata(url,data):Observable<Moughataa>{
            return this.httpClient.post<Moughataa>(url,data);
                                     }
@@ -83,6 +87,12 @@ export class CampagnevacService {
 
   public getRessource(url):Observable<Demographie>{
      return this.httpClient.get<Demographie>(url);
+}
+public getRessourceappuser(url):Observable<AppUser>{
+     return this.httpClient.get<AppUser>(url);
+}
+ public getRessource1(url):Observable<Enquete>{
+     return this.httpClient.get<Enquete>(url);
 }
 
 public UpdatRessource(url,data):Observable<Demographie>{
@@ -126,6 +136,9 @@ public getwilaya(){
     onGetdemographiedropdown(){
      return this.httpClient.get("http://localhost:8080/demographies");
     }
+    getenquetes(){
+         return this.httpClient.get("http://localhost:8080/enquetes");
+        }
     public saveRessourceca(url,data):Observable<Campagne>{
        return this.httpClient.post<Campagne>(url,data);
       }
@@ -165,6 +178,9 @@ return this.httpClient.get(this.host+"/wilayaMoughataa/"+idWilaya);
 }
 onGetwilayadropdown(){
  return this.httpClient.get("http://localhost:8080/wilayas");
+}
+getVaccins(){
+ return this.httpClient.get("http://localhost:8080/allVaccins");
 }
 onGetmoughatadropdown(){
  return this.httpClient.get("http://localhost:8080/moughataas");

@@ -1,0 +1,42 @@
+<div class="container"  *ngIf="curentproduct">
+  <div class="card"></div>
+  <div class="card" >
+    <h2 class="title">Editer</h2>
+    <form  #f="ngForm" (ngSubmit)="onUpdateEnquete(curentproduct)" >
+
+        <div class="input-container">
+          <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.wilaya" />
+          <label for="#{label}">Wilaya</label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container">
+          <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.moughataa" />
+          <label for="#{label}">Moughataa</label>
+          <div class="bar"></div>
+        </div>
+      <div class="input-container">
+        <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.nb011" />
+        <label for="#{label}">0 a 12 mois</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.nb1259" />
+        <label for="#{label}">12 a 59 mois</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.popvisee" />
+        <label for="#{label}">Population Total</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button><span>Ajouter</span></button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+

@@ -1,3 +1,26 @@
+<div class="g2">Liste des Roles </div>
+  <div>
+    <table  class="content-table" *ngIf="appRoles" >
+      <thead> <tr class="active-row"><th>ID</th><th>Nom</th></tr> </thead>
+      <tbody> <tr *ngFor="let r of appRoles">
+        <td>{{r.id}}</td>
+        <td>{{r.roleName}}</td>
+
+
+
+      </tr>
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+
+
+
+
 <div class="container" *ngIf="appRoles">
   <div class="card"></div>
   <div class="card">
@@ -15,31 +38,5 @@
 
     </form>
   </div>
-
-</div>
-<div ><h1 classe ="ti">Liste des roles</h1>>/div>
-  <div>
-    <table  class="content-table" *ngIf="appRoles" >
-      <thead> <tr class="active-row"><th>ID</th><th>Nom</th><th></th><th></th><th></th></tr> </thead>
-      <tbody> <tr *ngFor="let r of appRoles" >
-        <td>{{r.id}}</td>
-        <td>{{r.roleName}}</td>
-
-        <td><a class="btn btn-outline-primary">Delete</a></td>
-        <td><a class="btn btn-outline-primary">Modifier</a></td>
-        <td><a class="btnes">Details</a></td>
-
-
-      </tr>
-
-      </tbody>
-    </table>
-
-
-
-  </div>
-
-
-
 
 </div>

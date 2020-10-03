@@ -5,7 +5,7 @@ import { Enquete } from '../model/enquete.model';
 import { Demographie } from '../model/demographie.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { DemographieService } from '../services/DemographieService';
 @Component({
   selector: 'app-t',
   templateUrl: './t.component.html',
@@ -22,10 +22,25 @@ public cal;
 
 public sub;
 public test;
+
+ public size:number=5;
+ public currentpage:number=0;
+ public totalPages:number;
+ public pages:Array<number>;
+ public currentKeyword: string="";
+ //public test: string="";
+ public wilayas;
+ public moughataas;
+ public  selectedemo;
+
+ public mode:number=1;
+ public de:number=9;
+
     constructor(private capservice:CampagnevacService,
-        private activatedRoute: ActivatedRoute,private router:Router) { }
+        private activatedRoute: ActivatedRoute,private router:Router,private demogService:DemographieService) { }
 
     ngOnInit() {
+
 
     /* this.capservice.getdemograph2()
                        .subscribe(data=>{
@@ -149,6 +164,24 @@ console.log(this.demo.id);
 this.router.navigate(['/nouveau-enquete',this.demo.id]);
 
             }
+
+
+ supprimerenquete(e){
+            let conf=confirm("etes vous sur");
+            if(conf){
+              this.demogService.deleteEnquete(e.id);
+            }
+}
+Editenquete(e){
+          //console.log(d);
+        let url=e._links.self.href;
+        this.router.navigateByUrl("/edit-enquete/"+btoa(url));
+
+         }
+
+         details(e){
+         this.router.navigate(['/detailsenquete',e.id]);
+}
 
 
 }

@@ -1,12 +1,14 @@
 import { Demographie } from '../model/demographie.model';
 import { Moughataa } from '../model/moughataa.model';
+import { Wilaya } from '../model/wilaya.model';
 export class Enquete{
-
+public id:Number;
 public nb011:Number;
 public nb1259:Number;
 public popvisee:Number;
 public demographie:Demographie;
 public moughataa:Moughataa;
+public wilaya:Wilaya;
 
 /*
 constructor(nb011:Number, nb1259:Number, popvisee:Number, demographie:Demographie, moughataa:Moughataa){
@@ -14,7 +16,7 @@ constructor(nb011:Number, nb1259:Number, popvisee:Number, demographie:Demographi
     this.nb1259 = nb1259;
     this.popvisee = popvisee;
     this.demographie = demographie;
-    this.moughataa = moughataa; 
+    this.moughataa = moughataa;
 }
 */
 constructor (){}

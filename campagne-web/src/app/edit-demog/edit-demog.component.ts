@@ -39,5 +39,5 @@ export class EditDemogComponent implements OnInit {
       }
   */
   }
-  
+
 }

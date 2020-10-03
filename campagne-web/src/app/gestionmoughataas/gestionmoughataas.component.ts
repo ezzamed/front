@@ -35,6 +35,8 @@ public curent;
           })
 
 }
+nouvdemo(){
+this.router.navigateByUrl("/nouveau-moughataa")}
 
 
 

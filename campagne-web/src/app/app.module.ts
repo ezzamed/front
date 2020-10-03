@@ -36,6 +36,11 @@ import { GestionmoughataasComponent } from './gestionmoughataas/gestionmoughataa
 import { GestionwilayasComponent } from './gestionwilayas/gestionwilayas.component';
 import { GestionvaccinationsComponent } from './gestionvaccinations/gestionvaccinations.component';
 import { GestionComponent } from './gestion/gestion.component';
+import { EditEnqueteComponent } from './edit-enquete/edit-enquete.component';
+import { DetailsenqueteComponent } from './detailsenquete/detailsenquete.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { NouveauMoughataaComponent } from './nouveau-moughataa/nouveau-moughataa.component';
+import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +75,11 @@ import { GestionComponent } from './gestion/gestion.component';
     GestionwilayasComponent,
     GestionvaccinationsComponent,
     GestionComponent,
+    EditEnqueteComponent,
+    DetailsenqueteComponent,
+    EditUserComponent,
+    NouveauMoughataaComponent,
+    GestionvaccinsComponent,
 
   ],
   imports: [
