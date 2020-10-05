@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+ import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CampagnevacService } from '../services/campagnevac.service';
 import { Enquete } from '../model/enquete.model';
@@ -57,6 +57,7 @@ public test;
       this.capservice.getdemograph1()
                    .subscribe(data=>{
                    this.demographies=data;
+                   console.log(data);
 
 
    // this.activatedRoute.paramMap.subscribe(params => {
@@ -69,7 +70,6 @@ public test;
                  .subscribe(data=>{
                 // console.log(data)
                  this.enquetes=data;
-
                         })
 
             }

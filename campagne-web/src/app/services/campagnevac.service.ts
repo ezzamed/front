@@ -1,7 +1,7 @@
 import { Demographie } from '../model/demographie.model';
 import { Campagne } from '../model/campagne.model';
 import { Enquete } from '../model/enquete.model';
-import { AppRole } from '../model/approle.model';
+import { AppRole } from '../model/Approle.model';
 import { Moughataa } from '../model/moughataa.model';
 import { Wilaya } from '../model/wilaya.model';
 import { Vaccin } from '../model/vaccin.model';

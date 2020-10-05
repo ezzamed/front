@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { AppUser } from '../model/appuser.model';
+import { AppUser } from '../model/appUser.model';
 import { CampagnevacService } from '../services/campagnevac.service';
 import { DemographieService } from '../services/DemographieService';
 @Component({
