@@ -43,8 +43,9 @@ public size:number=5;
              Editduser(a){
 
                                                //console.log(d);
-             let url=a._links.self.href;
-            this.router.navigateByUrl("/edit-user/"+btoa(url));
+              let url=a._links.self.href;
+              this.router.navigateByUrl("/edit-user/"+btoa(url));
+
                        }
 
                nouveauser(){

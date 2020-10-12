@@ -12,17 +12,23 @@
       <li class="dropdown" *ngIf="isAuthenticated()">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-poll"></i>Gestion
           <span class="caret"></span></a>
-        <ul>
+        <ul class="dropdown-menu" >
+          <li *ngIf="isAdmin()"><a routerLink="/users">Gestion des Utilisateurs</a></li>
 
+          <li><a routerLink="/gestionroles">Gestion des Roles</a></li>
+          <li><a routerLink="/gestionmoughataas">Gestion des Moughataas</a></li>
+          <li><a routerLink="/gestionwilayas">Gestion des Wilayas</a></li>
+          <li><a routerLink="/gestionvaccins">Gestions des Vaccins</a></li>
+          <li><a routerLink="/gestionvaccinations">Gestions Vaccinations</a></li>
 
-    </ul>
-    </li>
+        </ul>
+      </li>
     </ul>
     <ul class="nav navbar-nav pull-right">
-    <li><a *ngIf="!isAuthenticated()"routerLink="/login">   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
-      <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
-    </svg>Connecter</a></li>
+      <li><a *ngIf="!isAuthenticated()"routerLink="/login">   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+        <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+      </svg>Connecter</a></li>
       <li><a *ngIf="isAuthenticated()" (click)="logOut()"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
       </svg>Deconnecter</a></li>
@@ -65,28 +71,28 @@
       </div>
       <ul>
         <li>
-         <a routerLink="/demogs" class="active">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <rect width="4" height="5" x="1" y="10" rx="1"/>
-              <rect width="4" height="9" x="6" y="6" rx="1"/>
-              <rect width="4" height="14" x="11" y="1" rx="1"/>
+          <a routerLink="/demogs" class="active">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
             </svg>
-            Gestion Demographies
+             Demographies
           </a>
         </li>
         <li>
           <a routerLink="/campagnes">
 
-            <span class="title"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
   <path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-</svg>Gestion Campagnes</span>
+</svg> Campagnes
           </a>
         </li>
         <li>
           <a href="#">
 
-            <span class="title">Carte Geographique</span>
+            <span class="title"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+</svg>Localisation</span>
           </a>
         </li>
 
