@@ -34,7 +34,19 @@ export class StatistiqueSevice {
     }
     //Enquete d'une campagne et moughataa
     getEnquete(id_campagne, id_moughata){
-        return this.httpClient.get(this.api+"campagne/moughataa/enquetes/"+id_campagne+"/"+id_moughata); 
+        return this.httpClient.get(this.api+"campagne/moughataa/enquetes/"+id_campagne+"/"+id_moughata);
     }
+
+    //Liste des wilayaa d'une campagne
+    getCampagneWilayas(id){
+        return this.httpClient.get(this.api+"campagne/wilayas/"+id);
+    }
+
+    getWilayaMoughataas(id){
+        return this.httpClient.get(this.api+"wilayaMoughataa/"+id);
+    }
+
+
+    
 
 }
