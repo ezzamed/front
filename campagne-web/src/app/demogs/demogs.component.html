@@ -27,9 +27,9 @@ Nouvelle Demographie</button>
   <div class="g2">Demographies</div>
   <div>
 <table  class="content-table" *ngIf="demographies" >
-        <thead> <tr class="active-row"><th>ID</th><th>Nom</th><th>Date</th><th></th><th></th><th></th></tr> </thead>
+        <thead> <tr class="active-row"><th>Nom</th><th>Date</th><th></th><th></th><th></th></tr> </thead>
   <tbody> <tr *ngFor="let d of demographies._embedded.demographies" >
-        <td>{{d.id}}</td>
+
         <td>{{d.name}}</td>
         <td>{{d.date}}</td>
 

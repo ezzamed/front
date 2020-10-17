@@ -35,6 +35,9 @@ export class CampagnevacService {
   public getdemogs(page:number,size:number){
   return this.httpClient.get(this.host+"/demographies?page="+page+"&size="+size);
   }
+  public getpageusers(page:number,size:number){
+    return this.httpClient.get(this.host+"/appUsers?page="+page+"&size="+size);
+    }
    public getusers(){
         return this.httpClient.get("http://localhost:8080/allUsers");
     }
@@ -72,6 +75,9 @@ export class CampagnevacService {
    public getdemogsBykeyword(mc:string,page:number,size:number){
     return this.httpClient.get(this.host+"/demographies/search/Bynamedemopage?mc="+mc+"&page="+page+"0&size="+size);
 }
+ public getuserBykeyword(mc:string,page:number,size:number){
+    return this.httpClient.get(this.host+"/users/search/Bynamedemopage?mc="+mc+"&page="+page+"0&size="+size);
+}
   public deleteRessource(url){
       return this.httpClient.delete(url);
       }
@@ -85,7 +91,10 @@ export class CampagnevacService {
          return this.httpClient.post<Enquete>(url,data);
         }
 
-  public getRessource(url):Observable<Demographie>{
+  public getRessource4(url):Observable<Campagne>{
+     return this.httpClient.get<Campagne>(url);
+}
+public getRessource(url):Observable<Demographie>{
      return this.httpClient.get<Demographie>(url);
 }
 public getRessourceappuser(url):Observable<AppUser>{

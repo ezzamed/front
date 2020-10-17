@@ -83,17 +83,7 @@ font-size: 20px;
 body{
   background-color:#333;
 }
-.search{
-  position: absolute;
-  top:10%;
-  left:32%;
-  transform:translate(-50%, -50%);
-  height:50px;
-  background-color:#F39C12 ;
-  padding:10px;
-  border-radius:50px;
 
-}
 .se{
   position: absolute;
     top:13%;
@@ -106,7 +96,7 @@ body{
 }
 .search{
   position: absolute;
-  top:20%;
+  top:16%;
   left:32%;
   transform:translate(-50%, -50%);
   height:50px;

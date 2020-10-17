@@ -22,7 +22,7 @@ import { UploadComponent } from './upload/upload.component';
 import { EnquetesComponent } from './enquetes/enquetes.component';
 import { CampagnesComponent } from './campagnes/campagnes.component';
 import { NouveauEnqueteComponent } from './nouveau-enquete/nouveau-enquete.component';
-import { GelocaliComponent } from './gelocali/gelocali.component';
+
 import { GestionrolesComponent } from './gestionroles/gestionroles.component';
 import { GestionmoughataasComponent } from './gestionmoughataas/gestionmoughataas.component';
 import { GestionwilayasComponent } from './gestionwilayas/gestionwilayas.component';
@@ -33,6 +33,9 @@ import { GestionComponent } from './gestion/gestion.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NouveauMoughataaComponent } from './nouveau-moughataa/nouveau-moughataa.component';
 import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.component';
+import { EditCampagneComponent } from './edit-campagne/edit-campagne.component';
+import { MapComponent } from './map/map.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 const routes: Routes = [
 {
 path:"demogs",component:DemogsComponent
@@ -101,8 +104,9 @@ path:"campagnes",component:CampagnesComponent
 path:"nouveau-enquete/:id",component:NouveauEnqueteComponent
 },
 {
-path:"gelocali",component:GelocaliComponent
+path:"statistique",component:StatistiqueComponent
 },
+
 {
 path:"gestionroles",component:GestionrolesComponent
 },
@@ -132,6 +136,15 @@ path:"nouveau-moughataa",component:NouveauMoughataaComponent
 },
 {
 path:"gestionvaccins",component:GestionvaccinsComponent
+},
+{
+path:"edit-campagne/:id",component:EditCampagneComponent
+},
+{
+path:"map",component:MapComponent
+},
+{
+path:"statistique/:id",component:StatistiqueComponent
 },
 ];
 

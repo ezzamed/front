@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GelocaliComponent } from './gelocali.component';
+import { StatistiqueComponent } from './statistique.component';
 
-describe('GelocaliComponent', () => {
-  let component: GelocaliComponent;
-  let fixture: ComponentFixture<GelocaliComponent>;
+describe('StatistiqueComponent', () => {
+  let component: StatistiqueComponent;
+  let fixture: ComponentFixture<StatistiqueComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GelocaliComponent ]
+      declarations: [ StatistiqueComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GelocaliComponent);
+    fixture = TestBed.createComponent(StatistiqueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

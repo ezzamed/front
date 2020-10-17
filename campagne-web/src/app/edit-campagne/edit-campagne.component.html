@@ -5,7 +5,7 @@
   <div class="card">
     <h2 class="title">Editer </h2>
     <!--<form #f="ngForm" (ngSubmit)="onUpdateDemog(f.value)">-->
-    <form #f="ngForm" (ngSubmit)="onUpdateDemog(curentproduct)">
+    <form #f="ngForm" (ngSubmit)="onUpdateCamp(curentproduct)">
       <div class="input-container">
         <input type="text" required="required"  name="name"  ngModel [(ngModel)]="curentproduct.name" />
         <label for="#{label}">Nom</label>
@@ -15,6 +15,16 @@
       <div class="input-container">
         <input type="date" id="#{label}" required="required"  name="date"  ngModel [(ngModel)]="curentproduct.date"/>
         <label for="#{label}">Date</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="#{label}" required="required"  name="statut"  ngModel [(ngModel)]="curentproduct.statut"/>
+        <label for="#{label}">Statut</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="#{label}" required="required"  name="demographie"  ngModel [(ngModel)]="curentproduct.demographie"/>
+        <label for="#{label}">demographie</label>
         <div class="bar"></div>
       </div>
       <div class="button-container">
@@ -50,4 +60,5 @@
     </form>
   </div>
 </div>
+
 

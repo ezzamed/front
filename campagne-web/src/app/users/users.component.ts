@@ -11,6 +11,7 @@ import { DemographieService } from '../services/DemographieService';
 })
 export class UsersComponent implements OnInit {
 public appUsers;
+public users;
 public size:number=5;
  public currentpage:number=0;
  public totalPages:number;
@@ -53,6 +54,7 @@ public size:number=5;
               }
               onselect(a){
               }
+
 
 
 

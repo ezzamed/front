@@ -1,14 +1,14 @@
 <div ><h1 classe ="ti">Liste des vaccinations</h1>>/div>
   <div>
     <table  class="content-table" *ngIf="vaccinations" >
-      <thead> <tr class="active-row"><th>ID</th><th>Data</th><th></th><th></th><th></th></tr> </thead>
+      <thead> <tr class="active-row"><th>Date</th><th>Nombre enfants</th><th>Tranche d'age</th><th>Moughataa</th><th></th></tr> </thead>
       <tbody> <tr *ngFor="let v of vaccinations">
         <td>{{v.date_vaccination}}</td>
         <td>{{v.nombre_enfant}}</td>
         <td>{{v.tranche_age}}</td>
         <td>{{v.moughataa.moughataaname}}</td>
-        <td><a class="btn btn-outline-primary">Delete</a></td>
-        <td><a class="btn btn-outline-primary">Modifier</a></td>
+
+
         <td><a class="btnes">Details</a></td>
 
 

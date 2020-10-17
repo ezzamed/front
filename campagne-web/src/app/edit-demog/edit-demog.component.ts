@@ -10,7 +10,7 @@ import { DemographieService } from '../services/DemographieService';
   styleUrls: ['./edit-demog.component.css']
 })
 export class EditDemogComponent implements OnInit {
-  public curentproduct: Demographie;
+  public curentproduct:Demographie;
   public url: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService, private capservice: CampagnevacService) { }

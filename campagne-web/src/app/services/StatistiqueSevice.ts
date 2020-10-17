@@ -21,16 +21,22 @@ export class StatistiqueSevice {
 
     //Une campagne par son id
     getCampgane(id){
-        return this.httpClient.get(this.api+"campagne/"+id); 
+        return this.httpClient.get(this.api+"campagne/"+id);
     }
     //Liste des vaccinations d'une campagne
     getCampganeVaccinations(id){
-        return this.httpClient.get(this.api+"campagne/vaccinations/"+id); 
+        return this.httpClient.get(this.api+"campagne/vaccinations/"+id);
     }
+     getCampganeVaccins(id){
+          return this.httpClient.get(this.api+"campagne/vaccins/"+id);
+        }
+     getVaccinVaccinations(id){
+               return this.httpClient.get(this.api+"vaccin/vaccinations/"+id);
+             }
 
     //Liste des moughataas d'une campagne
     getCampagneMoughataas(id){
-        return this.httpClient.get(this.api+"campagne/moughataas/"+id); 
+        return this.httpClient.get(this.api+"campagne/moughataas/"+id);
     }
     //Enquete d'une campagne et moughataa
     getEnquete(id_campagne, id_moughata){
@@ -47,6 +53,6 @@ export class StatistiqueSevice {
     }
 
 
-    
+
 
 }

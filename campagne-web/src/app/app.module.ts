@@ -29,8 +29,7 @@ import { UploadComponent } from './upload/upload.component';
 import { EnquetesComponent } from './enquetes/enquetes.component';
 import { CampagnesComponent } from './campagnes/campagnes.component';
 import { NouveauEnqueteComponent } from './nouveau-enquete/nouveau-enquete.component';
-import { GoogleMapsModule } from '@angular/google-maps'
-import { GelocaliComponent } from './gelocali/gelocali.component';
+
 import { GestionrolesComponent } from './gestionroles/gestionroles.component';
 import { GestionmoughataasComponent } from './gestionmoughataas/gestionmoughataas.component';
 import { GestionwilayasComponent } from './gestionwilayas/gestionwilayas.component';
@@ -41,6 +40,9 @@ import { DetailsenqueteComponent } from './detailsenquete/detailsenquete.compone
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NouveauMoughataaComponent } from './nouveau-moughataa/nouveau-moughataa.component';
 import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.component';
+import { EditCampagneComponent } from './edit-campagne/edit-campagne.component';
+import { MapComponent } from './map/map.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,6 @@ import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.compone
     EnquetesComponent,
     CampagnesComponent,
     NouveauEnqueteComponent,
-    GelocaliComponent,
     GestionrolesComponent,
     GestionmoughataasComponent,
     GestionwilayasComponent,
@@ -80,11 +81,14 @@ import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.compone
     EditUserComponent,
     NouveauMoughataaComponent,
     GestionvaccinsComponent,
+    EditCampagneComponent,
+    MapComponent,
+    StatistiqueComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule, ChartModule,GoogleMapsModule
+    AppRoutingModule, HttpClientModule, FormsModule, ChartModule
    ],
   providers: [],
   bootstrap: [AppComponent]

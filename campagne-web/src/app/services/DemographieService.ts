@@ -16,6 +16,9 @@ export class DemographieService {
     updateDemographie(demog){
         return this.httpClient.put(this.api+"modifierDemographie", demog).subscribe();
     }
+     updateCampagne(camp){
+            return this.httpClient.put(this.api+"modifierCampagne", camp).subscribe();
+        }
      deleteEnquete(id){
             this.httpClient.delete(this.api+"supprimerEnquete/"+id).subscribe();
         }
@@ -36,6 +39,9 @@ export class DemographieService {
     updateUser(user){
             return this.httpClient.put(this.api+"modifierUser", user).subscribe();
         }
+         deleteCampagne(id){
+            this.httpClient.delete(this.api+"supprimerCampagne/"+id).subscribe();
+            }
 
 
 }

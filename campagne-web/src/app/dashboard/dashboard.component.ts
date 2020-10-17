@@ -115,7 +115,7 @@ export class DashboardComponent {
                               enquete = enq;
                               //statWilayas.push(this.statistiquesParMoughataa(this.vaccinations, moughataa, enq));
                             }
-                          }, 
+                          },
                           (e) => {console.log(e)},
                             () => {
                               datasetsWilaya.data.push(this.statistiquesParWilaya(this.vaccinations,/* this.wilayas, */ mgts, enquete));
