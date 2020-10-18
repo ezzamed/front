@@ -52,6 +52,10 @@ export class StatistiqueSevice {
         return this.httpClient.get(this.api+"wilayaMoughataa/"+id);
     }
 
+    getCampagneEnquetes(id){
+        return this.httpClient.get(this.api+"campagne/enquetes/"+id);
+    }
+
 
 
 

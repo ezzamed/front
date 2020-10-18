@@ -65,6 +65,7 @@ export class DashboardComponent {
     datasets1.data.push(0);
     this.moughataasData.datasets.push(datasets1);
 
+    //Par Moughataa
     this.statistiqueService.getCampgane(this.activatedRoute.snapshot.params.id)
       .subscribe((data) => {
         this.camp = data;
@@ -86,6 +87,7 @@ export class DashboardComponent {
           })
       });
 
+    //par Wilaya
     this.statistiqueService.getCampgane(this.activatedRoute.snapshot.params.id)
     .subscribe((data) => {
         this.camp = data;
@@ -96,14 +98,19 @@ export class DashboardComponent {
               .subscribe((result) => {
                 this.wilayas = result;
                 this.wilayas.map((wilaya) => {
-                  this.WilayasData.labels.push(wilaya.name);
                   //console.log(wilaya);
                   this.statistiqueService.getWilayaMoughataas(wilaya.id)
                     .subscribe((mogs) => {
                       let mgts: any;// = []:any;
                       mgts = mogs;
-                      var enquete = null;
-                      mgts.map((moughataa) => {
+                      //var enquete = null;
+                      this.statistiqueService.getCampagneEnquetes(this.camp.id).subscribe((enqs)=>{
+                        this.WilayasData.labels.push(wilaya.name);
+                        datasetsWilaya.data.push(this.statistiquesParWilaya(this.vaccinations, mgts, enqs));
+                        this.WilayasData.datasets.push(datasetsWilaya)
+                      })
+                      //mgts.map((moughataa) => {
+                        /*
                         this.statistiqueService.getEnquete(this.camp.id, moughataa.id)
                           .subscribe((enq) => {
                             //console.log(enq);
@@ -118,10 +125,11 @@ export class DashboardComponent {
                           },
                           (e) => {console.log(e)},
                             () => {
-                              datasetsWilaya.data.push(this.statistiquesParWilaya(this.vaccinations,/* this.wilayas, */ mgts, enquete));
+                              datasetsWilaya.data.push(this.statistiquesParWilaya(this.vaccinations,this.wilayas,  mgts, enquete));
                               this.WilayasData.datasets.push(datasetsWilaya)
                             });
-                      });
+                      }*/
+                      //);
                     });
                 })
               })
@@ -133,6 +141,8 @@ export class DashboardComponent {
   //moughataa est la moughtaa dont on veut calculer le pourcentage de vaccinations
   //enquetes liste des enquetes de la campagne selectionne
   statistiquesParMoughataa(vaccinations, moughataa, enquete) {
+    if(enquete[0]==undefined)
+      return 0;
     //res est la somme de nombre d'enfants des vaccinations d'une campagne et une moughataa
     let res = 0;
     //on recupere le nombe d'enfant de chaque vaccination de la moughataa et la campagne en questions
@@ -145,12 +155,33 @@ export class DashboardComponent {
     return ((res / enquete[0].popvisee) * 100);
   }
 
-  statistiquesParWilaya(vaccinations, moughataas, enquete) {
+  statistiquesParWilaya(vaccinations, moughataas, enquetes) {
     let result = 0;
-    moughataas.map((moughataa) => {
-      result += this.statistiquesParMoughataa(vaccinations, moughataa, enquete);
+    let counter = 0;
+    let nbr_enfants = 0;
+    let popsVisees = 0;
+    enquetes.map((enq)=>{
+      let i =0;
+      for(i=0; i<moughataas.length; i++){
+        if(enq.moughataa.id==moughataas[i].id){
+          //conteur pour verifier si il ya eu de resultat ou non pour nous permettre d'eviter l'erreur de la division par 0;
+          counter++;
+          vaccinations.map((vac) => {
+            if (vac.moughataa.id === moughataas[i].id) {
+              nbr_enfants+=vac.nombre_enfant;
+              popsVisees+=enq.popvisee;
+            }
+          });
+          break;
+        }
+      }
     })
-    return ((result / moughataas.length));
+    if(counter==0)
+      return 0;
+    else{
+      result = nbr_enfants/popsVisees;
+      return (result*100);
+    }
   }
 
 }
