@@ -60,6 +60,7 @@ public demographies;
                   })
                   }
     onSavedonnee(dataForm){
+      dataForm.popvisee = parseInt(dataForm.nb011) + parseInt(dataForm.nb1259);
       this.wilayas.map((w)=>{
         if(w.id==this.selectedWilayaId){
           dataForm.wilaya=null;
