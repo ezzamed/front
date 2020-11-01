@@ -45,20 +45,24 @@ export class DashboardComponent {
     const datasets1 = {
       label: "",
       data: [],
-      backgroundColor: 'rgba(255, 200, 85, 0.2)',
-      borderColor: 'rgb(255, 99, 132)'
+      backgroundColor: '#028f90',
+      borderColor: '#028f90'
     };
     const datasetsWilaya = {
       label: "",
       data: [],
-      backgroundColor: 'rgba(255, 200, 85, 0.2)',
-      borderColor: 'rgb(255, 99, 132)'
+      backgroundColor: '#028f90',
+      borderColor: '#028f90'
     };
     const datasetsTrancheAge = {
       label: "",
       data: [],
-      backgroundColor: 'rgba(255, 200, 85, 0.2)',
-      borderColor: 'rgb(255, 99, 132)'
+      label1: "",
+        data1: [],
+
+      backgroundColor: '#028f90',
+      borderColor: '#028f90'
+
     };
 
     this.moughataasData.labels.push("");
@@ -135,6 +139,30 @@ export class DashboardComponent {
               })
           })
       })
+       //Par Tranche d'age
+       this.statistiqueService.getCampgane(this.activatedRoute.snapshot.params.id)
+             .subscribe((data) => {
+               this.camp = data;
+               this.statistiqueService.getCampganeVaccinations(this.camp.id)
+                 .subscribe((result) => {
+                   this.vaccinations = result;
+                   this.statistiqueService.getCampagneMoughataas(this.camp.id)
+                     .subscribe((result) => {
+                       this.moughataas = result;
+                       this.moughataas.map((moughataa) => {
+                         this.statistiqueService.getEnquete(this.camp.id, moughataa.id)
+                           .subscribe((enq) => {
+                             this.trangeAgeData.labels.push(moughataa.moughataaname);
+                             datasetsTrancheAge.data.push(this.statistiquesParTrancheAge011(this.vaccinations, moughataa, enq));
+                             datasetsTrancheAge.data1.push(this.statistiquesParTrancheAge1259(this.vaccinations, moughataa, enq));
+                             this.trangeAgeData.datasets.push(datasets1);
+                           })
+                       })
+                     })
+                 })
+             });
+
+
   }
 
   //vaccinations est la liste des vaccinations de la campgane selectionne
@@ -154,6 +182,35 @@ export class DashboardComponent {
     //on retourne le pourcentage des vaccinations de la campagne/moughataa;
     return ((res / enquete[0].popvisee) * 100);
   }
+   statistiquesParTrancheAge011(vaccinations, moughataa, enquete) {
+      if(enquete[0]==undefined)
+        return 0;
+      //res est la somme de nombre d'enfants des vaccinations d'une campagne et une moughataa
+      let res = 0;
+      //on recupere le nombe d'enfant de chaque vaccination de la moughataa et la campagne en questions
+      vaccinations.map((vac) => {
+        if (vac.moughataa.id === moughataa.id && vac.tranche_age===0-11) {
+          res = res + vac.nombre_enfant;
+        }
+      });
+      //on retourne le pourcentage des vaccinations de la campagne/moughataa;
+      return ((res / enquete[0].nb011) * 100);
+    }
+    statistiquesParTrancheAge1259(vaccinations, moughataa, enquete) {
+          if(enquete[0]==undefined)
+            return 0;
+          //res est la somme de nombre d'enfants des vaccinations d'une campagne et une moughataa
+          let res = 0;
+          //on recupere le nombe d'enfant de chaque vaccination de la moughataa et la campagne en questions
+          vaccinations.map((vac) => {
+            if (vac.moughataa.id === moughataa.id && vac.tranche_age===12-59) {
+              res = res + vac.nombre_enfant;
+            }
+          });
+          //on retourne le pourcentage des vaccinations de la campagne/moughataa;
+          return ((res / enquete[0].nb1259) * 100);
+        }
+
 
   statistiquesParWilaya(vaccinations, moughataas, enquetes) {
     let result = 0;

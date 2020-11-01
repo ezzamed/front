@@ -3,7 +3,7 @@ import { CampagnevacService } from '../services/campagnevac.service';
 import { Router } from '@angular/router';
 import { Campagne } from '../model/campagne.model';
 import { ActivatedRoute } from '@angular/router';
-
+import { StatistiqueSevice } from '../services/StatistiqueSevice';
 import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-exportpdf',
@@ -11,7 +11,7 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./exportpdf.component.css']
 })
 export class ExportpdfComponent {
-
+public wilayas;
  public moughataas;
  public demographies;
  //public cal=0;
@@ -29,100 +29,37 @@ export class ExportpdfComponent {
    public va;
    public demographie;
 
- constructor(private capservice:CampagnevacService ,private router:Router, private activatedRoute: ActivatedRoute) { }
+ constructor(private capservice:CampagnevacService ,private router:Router, private activatedRoute: ActivatedRoute, private statistiqueService: StatistiqueSevice) { }
 
  title = 'angular-app';
   fileName= 'ExcelSheet.xlsx';
 
   ngOnInit(): void {
- this.capservice.getcampagnes()
-                  .subscribe(data=>{
-                  this.campagnes=data;
-               this.campagnes._embedded.campagnes.forEach((c: Campagne) => {
-                  if (c.id == this.activatedRoute.snapshot.params.id) {
-                      this.camp = c;
-                       console.log(this.camp);
-                 //je recupere la demographie de cette campagne
-               this.capservice.getchartdemo(this.camp)
-                    .subscribe(data=>{
-                    this.demographie=data;
-                    // console.log(this.demographie);
-                 //je recupere les enquetes de cette demographie
-                this.capservice.getcharten(this.demographie)
-                .subscribe(data=>{
-                    this.enquetes=data;
+ this.statistiqueService.getCampgane(this.activatedRoute.snapshot.params.id)
+     .subscribe((data) => {
+         this.camp = data;
+         this.statistiqueService.getCampganeVaccinations(this.camp.id)
+           .subscribe((result) => {
+             this.vaccinations = result;
+             console.log(this.vaccinations);
 
-                    //console.log(this.enquetes);
-                  //je recupere pour chaq enquete la moughataa
-                this.enquetes._embedded.enquetes.forEach(e=>{
-                this.pop=e.popvisee;
-                    this.capservice.getchartm(e)
-                    .subscribe(data=>{
-                    this.mou=data;
+             this.statistiqueService.getCampagneWilayas(this.camp.id)
+               .subscribe((result) => {
+                 this.wilayas = result;
+                 this.wilayas.map((wilaya) => {
+                   //console.log(wilaya);
+                   this.statistiqueService.getWilayaMoughataas(wilaya.id)
+                     .subscribe((mogs) => {
+                       let mgts: any;// = []:any;
+                       mgts = mogs;
 
-                    this.mname=this.mou.moughataaname;
-                    //console.log(this.mou.moughataaname);
+                       })
 
-                    //console.log(this.mname);
-                    ////je recupere les vaccinations de cette moughataa
-                this.capservice.getchartvac(this.mou)
-                    .subscribe(data=>{
-                    this.vaccinations=data;
-                    this.vaccinations._embedded.vaccinations.forEach(v=>{
+                     });
+                 })
+               })
 
-                                    this.capservice.getcampagne(v)
-                                        .subscribe(data=>{
-                                    this.campagnes=data;
-
-                                     if(this.campagnes.id==this.camp.id){
-
-                                        this.va=v;
-
-
-                                            // console.log(this.result);
-
-        }
-
-
-                                                 })
-
-
-
-                                                           })
-
-
-
-
-
-                                                           })
-
-
-                                                             })
-
-
-
-                                                                     })
-                                                                     })
-
-
-
-
-
-
-
-
-
-                                                                                       })
-
-                                                                                                 }
-
-
-
-                                                                                             });
-
-
-                                                                                         })
-
+       })
 
 
         }

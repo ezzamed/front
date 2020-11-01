@@ -35,9 +35,21 @@ export class CampagnevacService {
   public getdemogs(page:number,size:number){
   return this.httpClient.get(this.host+"/demographies?page="+page+"&size="+size);
   }
-  public getpageusers(page:number,size:number){
-    return this.httpClient.get(this.host+"/appUsers?page="+page+"&size="+size);
+   public getcamps(page:number,size:number){
+    return this.httpClient.get(this.host+"/campagnes?page="+page+"&size="+size);
     }
+      public getmgts(page:number,size:number){
+        return this.httpClient.get(this.host+"/moughataas?page="+page+"&size="+size);
+        }
+         public getvaccinationspage(page:number,size:number){
+                return this.httpClient.get(this.host+"/vaccinations?page="+page+"&size="+size);
+                }
+  public getvaccinspage(page:number,size:number){
+    return this.httpClient.get(this.host+"/vaccins?page="+page+"&size="+size);
+    }
+    public getpageusers(page:number,size:number){
+        return this.httpClient.get(this.host+"/appUsers?page="+page+"&size="+size);
+        }
    public getusers(){
         return this.httpClient.get("http://localhost:8080/allUsers");
     }

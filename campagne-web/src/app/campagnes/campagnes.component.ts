@@ -10,10 +10,26 @@ import { DemographieService } from '../services/DemographieService';
 })
 export class CampagnesComponent implements OnInit {
 public campagnes;
+ public size:number=5;
+ public currentpage:number=0;
+ public totalPages:number;
+ public pages:Array<number>;
+ public currentKeyword: string="";
+ public test: string="";
   constructor(private capservice:CampagnevacService ,private router:Router,private demogService:DemographieService) { }
 
   ngOnInit(): void {
-  this.capservice.getcampagnes()
+   this.capservice.getcamps(this.currentpage,this.size)
+                 .subscribe(data=>{
+
+                   this.totalPages=data["page"].totalPages;
+                   this.pages=new Array<number>(this.totalPages);
+                   this.campagnes=data;
+                   //this.mode=2;
+                   },err=>{
+                   console.log(err);
+                   })
+  /*this.capservice.getcampagnes()
                    .subscribe(data=>{
 
                  //console.log(data)
@@ -21,7 +37,7 @@ public campagnes;
 
                      },err=>{
                      console.log(err);
-                     })
+                     })*/
                       /*onPagedemogs(i){
                        this.currentpage=i;
                       // this.onGetdemographie();
@@ -39,6 +55,26 @@ public campagnes;
 
 
 }
+onPagedemogs(i){
+  this.currentpage=i;
+  this.ngOnInit();
+  //this.Chercherdemogs();
+  }
+  onChercher(form: any){
+      this.currentpage=0;
+      this.currentKeyword=form.keyword;
+      this.Chercherdemogs();}
+    Chercherdemogs(){
+    this.capservice.getdemogsBykeyword(this.currentKeyword,this. currentpage,this.size)
+      .subscribe(data=>{
+
+        this.totalPages=data["page"].totalPages;
+        this.pages=new Array<number>(this.totalPages);
+         this.campagnes=data;
+        },err=>{
+        console.log(err);
+        });
+        }
      nouveauser(){
     this.router.navigateByUrl("/nouveau-campagne")
     }

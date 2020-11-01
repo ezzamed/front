@@ -14,7 +14,12 @@
 
       </tr>
 
+
       </tbody>
+      <tr>  <ul class="c1" *ngIf="pages" class="nav nav-pills">
+        <li  Class="clickable" [ngClass]="i==currentpage?'active':''"*ngFor="let p of pages;let i=index ">
+          <a (click)="onPagedemogs(i)">{{i}}</a></li>
+      </ul></tr>
     </table>
 
 

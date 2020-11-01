@@ -1,7 +1,7 @@
 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<div >
+<div>
 
   <button class="se" (click)="nouveauser()" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
@@ -11,10 +11,10 @@
 </div>
 <div>
   <div class="search">
-    <form>
-      <input type="text" class="search_box" placeholder="Search" >
+    <form #c="ngForm" (ngSubmit)="onChercher(c.value)">
+      <input type="text" name="keyword" ngModel class="search_box" placeholder="Chercher" >
       <div class="ficon">
-        <i class="fa fa-search"></i>
+        <button  type="submit" class="fa fa-search"></button>
       </div>
     </form>
   </div>
@@ -22,15 +22,16 @@
 
   <div>
   </div>
-  <div ><h1 classe ="ti">Liste des Campagnes</h1>>/div>
+  <div ><h1 class ="g2">Campagnes</h1>>/div>
     <div>
       <table  class="content-table" *ngIf="campagnes" >
-        <thead> <tr class="active-row"><th>Nom</th><th>Date</th><th>Statut</th><th></th><th></th><th></th><th></th></tr> </thead>
+        <thead> <tr class="active-row"><th>Nom</th><th>Date</th><th>Statut</th><th></th><th></th><th></th><th> Taux de couverture</th><th>Statistiques</th></tr> </thead>
         <tbody> <tr *ngFor="let c of campagnes._embedded.campagnes" >
 
           <td>{{c.name}}</td>
           <td>{{c.date}}</td>
-          <td>{{c.statut}}</td>
+          <td *ngIf="c.statut!=null">{{c.statut}}</td>
+          <td *ngIf="c.statut==null">Null</td>
           <td><button type="button" class="btn btn-outline-warning"(click)="Deletecampagne(c)"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -41,11 +42,16 @@
           <td><a class="btn btn-outline-primary"(click)="detailselect(c)"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
           </svg></i></a></td>
-          <td><a class="btnes"  (click)="onselect(c)">Taux de couverture</a></td>
-          <td><a class="btnes"  (click)="onselectstatistiques(c)">Statistiques</a></td>
+          <td><i class="fa fa-percent" aria-hidden="true" (click)="onselect(c)"> </i> </td>
+          <td><i class="fa fa-bar-chart" aria-hidden="true" (click)="onselectstatistiques(c)" ></i></td>
 
 
         </tr>
+        <tr>  <ul class="c1" *ngIf="pages" class="nav nav-pills">
+          <li  Class="clickable" [ngClass]="i==currentpage?'active':''"*ngFor="let p of pages;let i=index ">
+            <a (click)="onPagedemogs(i)">{{i}}</a></li>
+        </ul></tr>
+
 
         </tbody>
       </table>
@@ -62,3 +68,5 @@
 
 
 
+</div>
+</div>

@@ -2,18 +2,27 @@ import { Component, ViewChild } from '@angular/core';
 import { Enquete } from '../model/enquete.model';
 import { CampagnevacService } from '../services/campagnevac.service';
 import { Router } from '@angular/router';
+import { Demographie } from '../model/demographie.model';
+import { ActivatedRoute } from '@angular/router';
+import { DemographieService } from '../services/DemographieService';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent  {
-  constructor(private capservice:CampagnevacService,private router:Router) { }
+  constructor(private capservice:CampagnevacService,private router:Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService) { }
 
   title = 'Angular7AppReadCSV';
-
+    public demographies;
+    public demo;
+    public enquetes;
     public records: any[] = [];
     @ViewChild('csvReader') csvReader: any;
+    public getid(){
+
+                          }
+
 
     uploadListener($event: any): void {
 
@@ -45,6 +54,7 @@ export class UploadComponent  {
       }
     }
 
+
     getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
       let csvArr = [];
 
@@ -56,6 +66,7 @@ export class UploadComponent  {
           enquete.nb011 = Number.parseInt(curruntRecord[0].toString());
           enquete.nb1259 = Number.parseInt(curruntRecord[1]);
           enquete.popvisee = Number.parseInt(curruntRecord[2]);
+           //enquete.moughataa = (curruntRecord[3].toString());
            csvArr.push(enquete);
         }
       }
@@ -81,8 +92,51 @@ export class UploadComponent  {
 
     }
      sendDataToServer(){
+     this.capservice.getdemograph1()
+                                  .subscribe(data=>{
+                                  this.demographies=data;
+              this.capservice.getenquetes()
+                       .subscribe(data=>{
+                          this.enquetes=data;
 
-       this.records.forEach(record=>{
+
+                  // this.activatedRoute.paramMap.subscribe(params => {
+                         this.demographies._embedded.demographies.forEach((d: Demographie) => {
+
+                           if (d.id == this.activatedRoute.snapshot.params.id) {
+                             this.demo = d;
+
+
+                               }
+                  this.enquetes._embedded.enquetes.forEach((e: Enquete) => {
+
+                                       if (e.id ==d.id) {
+                                         this.demo = d;
+
+
+
+                                           }
+
+
+
+ console.log(this.demo);
+     this.demogService.getDemographie(this.demo.id).subscribe((demog)=>{
+     console.log(demog);
+     this.records.forEach(record=>{
+     console.log(record);
+             record.demographie = demog;
+            //console.log(dataForm);
+             this.capservice.saveEnquetetoDemo(record).subscribe((res)=>{
+               this.router.navigateByUrl("/t/"+this.activatedRoute.snapshot.params.id);
+             })
+           })
+           })
+            })
+                                          })
+                 })
+                                          })
+
+       /*this.records.forEach(record=>{
        this.capservice.saveRessource2(this.capservice.host+"/enquetes",record)
        .subscribe(data=>{
 
@@ -91,7 +145,7 @@ export class UploadComponent  {
              })
 
 
-        });
+        });*/
       }
 
 

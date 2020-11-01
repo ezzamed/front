@@ -1,36 +1,27 @@
 <div style=" margin: auto; width: 50%;">
-  <button (click)="exportexcel()">Export to Excel</button>
+  <button (click)="exportexcel()"><i class="fa fa-table" aria-hidden="true"></i>Export to Excel</button>
 
-  <table id="excel-table"  *ngIf="enquetes">
-    <tr><th>Population visee</th><th>Population apres vaccination</th></tr>
+  <table id="excel-table"  *ngIf="vaccinations">
+    <tr  ><th>Population visee</th><th>Population apres vaccination</th></tr>
 
     <tr>
-
+      <th>Wilaya</th>
       <th>Moughataa</th>
       <th>Population totale visee</th>
       <th>0 a 11 mois</th>
       <th>12 a 59 mois</th>
 
     </tr>
-    <tr *ngFor="let item of enquetes._embedded.enquetes">
+    <tr *ngFor="let item of vaccinations">
 
       <td>{{item.moughataa.moughataaname}}</td>
-      <td>{{item.popvisee}}</td>
-      <td>{{item.nb011}}</td>
+
+
       <td>{{item.nb1259}}</td>
 
 
     </tr>
-    <tr>
-    <tr *ngFor="let item of enquetes._embedded.enquetes">
 
-      <td>{{item.moughataa.moughataaname}}</td>
-      <td>{{item.popvisee}}</td>
-      <td>{{item.nb011}}</td>
-      <td>{{item.nb1259}}</td>
-
-
-    </tr>
 
   </table>
 </div>

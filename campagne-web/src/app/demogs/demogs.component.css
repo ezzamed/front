@@ -16,6 +16,9 @@
   position: relative;
   top: 60px; left: 10px;
 }
+.fa fa-trash{
+  color: #028f90;
+}
 
 .content-table thead tr {
   background-color: #028f90;

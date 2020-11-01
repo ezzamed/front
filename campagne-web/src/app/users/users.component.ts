@@ -22,7 +22,18 @@ public size:number=5;
   constructor(private capservice:CampagnevacService ,private router:Router, private demogService:DemographieService) { }
 
   ngOnInit(): void {
-   this.capservice.getusers()
+    this.capservice.getpageusers(this.currentpage,this.size)
+                 .subscribe(data=>{
+
+                   this.totalPages=data["page"].totalPages;
+                   this.pages=new Array<number>(this.totalPages);
+                   this.appUsers=data;
+                   //this.mode=2;
+                   },err=>{
+                   console.log(err);
+                   })
+
+  /* this.capservice.getusers()
                  .subscribe(data=>{
 
                console.log(data)
@@ -30,8 +41,13 @@ public size:number=5;
 
                    },err=>{
                    console.log(err);
-                   })
+                   })*/
                     }
+                     onPagedemogs(i){
+                      this.currentpage=i;
+                      this.ngOnInit();
+                      //this.Chercherdemogs();
+                      }
 
 
 

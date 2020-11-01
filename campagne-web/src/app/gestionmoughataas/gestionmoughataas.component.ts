@@ -2,26 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import { CampagnevacService } from '../services/campagnevac.service';
 import { AppUser } from '../model/appUser.model';
 import { Router } from '@angular/router';
+import { Moughataa } from '../model/moughataa.model';
+import { DemographieService } from '../services/DemographieService';
 @Component({
   selector: 'app-gestionmoughataas',
   templateUrl: './gestionmoughataas.component.html',
   styleUrls: ['./gestionmoughataas.component.css']
 })
 export class GestionmoughataasComponent implements OnInit {
-public moughataas;
+public moughataas:any;
 public curent;
+ public size:number=5;
+ public currentpage:number=0;
+ public totalPages:number;
+ public pages:Array<number>;
+ public currentKeyword: string="";
+ public test: string="";
+ public mode:number=1;
+ public de:number=9;
 
- constructor(private capservice:CampagnevacService,private router:Router) { }
+ constructor(private capservice:CampagnevacService,private router:Router,private demogService:DemographieService) { }
 
   ngOnInit(): void {
-   this.capservice.onGetmoughataas()
-                    .subscribe(data=>{
-                       this.moughataas=data;
-                       console.log(this.moughataas);
-                        },err=>{
-                      console.log(err);
-                      })
+
+              this.capservice.getmgts(this.currentpage,this.size)
+                            .subscribe(data=>{
+
+                              this.totalPages=data["page"].totalPages;
+                              this.pages=new Array<number>(this.totalPages);
+                              this.moughataas=data;
+                              //this.mode=2;
+                              },err=>{
+                              console.log(err);
+                              })
     }
+
     onSaveMoughataa(data:any){
           this.capservice.postmoughata(this.capservice.host+"/moughataas",data)
           .subscribe(res=>{
@@ -35,6 +50,11 @@ public curent;
           })
 
 }
+onPagedemogs(i){
+      this.currentpage=i;
+      this.ngOnInit();
+      //this.Chercherdemogs();
+      }
 nouvdemo(){
 this.router.navigateByUrl("/nouveau-moughataa")}
 
@@ -42,3 +62,4 @@ this.router.navigateByUrl("/nouveau-moughataa")}
 
 
 }
+
