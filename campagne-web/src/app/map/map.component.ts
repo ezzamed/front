@@ -18,12 +18,13 @@ import {Icon,Style} from 'ol/style';
 export class MapComponent implements OnInit {
 map;
 chicago;
-VectorSource;
+vectorSource;
 vectorLayer;
 rasterLayer;
   constructor() { }
 
   ngOnInit(): void {
+
    this.initilizeMap();
   }
   initilizeMap() {
