@@ -73,7 +73,7 @@ onSaveDonneedemogra(){
     this.currentKeyword=form.keyword;
     this.Chercherdemogs();}
   Chercherdemogs(){
-  this.capservice.getdemogsBykeyword(this.currentKeyword,this. currentpage,this.size)
+  this.capservice.getdemogsBykeyword(this.currentKeyword,this.currentpage,this.size)
     .subscribe(data=>{
 
       this.totalPages=data["page"].totalPages;

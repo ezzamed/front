@@ -34,7 +34,7 @@ export class StatistiqueSevice {
                return this.httpClient.get(this.api+"vaccin/vaccinations/"+id);
              }
 
-    //Liste des moughataas d'une campagne
+    //Liste des moughataas d'une campagnen
     getCampagneMoughataas(id){
         return this.httpClient.get(this.api+"campagne/moughataas/"+id);
     }

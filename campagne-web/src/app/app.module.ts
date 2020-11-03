@@ -43,6 +43,8 @@ import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.compone
 import { EditCampagneComponent } from './edit-campagne/edit-campagne.component';
 import { MapComponent } from './map/map.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
+import { WilayaNamePipe } from './pipes/wilaya-name.pipe';
+import { IdMoughataaPipe } from './pipes/id-moughataa.pipe';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { StatistiqueComponent } from './statistique/statistique.component';
     EditCampagneComponent,
     MapComponent,
     StatistiqueComponent,
+    WilayaNamePipe,
+    IdMoughataaPipe,
 
   ],
   imports: [

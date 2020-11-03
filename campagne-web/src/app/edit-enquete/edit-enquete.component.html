@@ -5,12 +5,16 @@
     <form  #f="ngForm" (ngSubmit)="onUpdateEnquete(curentproduct)" >
 
         <div class="input-container">
+
           <input type="text" required="required"  name="moughataa.wilaya.name"  ngModel [(ngModel)]="curentproduct.moughataa.wilaya.name" />
+          <input type="text" required="required"  name="wilaya"  ngModel [(ngModel)]="curentproduct.wilaya.name" />
           <label for="#{label}">Wilaya</label>
           <div class="bar"></div>
         </div>
         <div class="input-container">
+
           <input type="text" required="required"  name="moughataa.moughataaname"  ngModel [(ngModel)]="curentproduct.moughataa.moughataaname" />
+          <input type="text" required="required"  name="moughataa"  ngModel [(ngModel)]="curentproduct.moughataa" />
           <label for="#{label}">Moughataa</label>
           <div class="bar"></div>
         </div>

@@ -14,7 +14,7 @@ import { DemographieService } from '../services/DemographieService';
 })
 export class NouveauEnqueteComponent implements OnInit {
 public curentproduct:Enquete;
-public id;
+public idenq;
 public demographies;
  demo:Demographie
  public moughataas;
@@ -23,6 +23,7 @@ public demographies;
 
  public selectedWilayaId;
  public selectedMoughataaId;
+ public id;
 
 
   constructor(private capservice:CampagnevacService,private router:Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService) { }
@@ -42,6 +43,9 @@ public demographies;
                                                             })
 
 */
+this.idenq= this.activatedRoute.snapshot.params.id;
+
+
   this.capservice.getdemograph1()
                      .subscribe(data=>{
                      this.demographies=data;
@@ -60,7 +64,11 @@ public demographies;
                   })
                   }
     onSavedonnee(dataForm){
+//<<<<<<< HEAD
       dataForm.popvisee = parseInt(dataForm.nb011) + parseInt(dataForm.nb1259);
+//=======
+   //dataForm.popvisee = parseInt(dataForm.nb011) + parseInt(dataForm.nb1259);
+//>>>>>>> 0f04c53db63dfbb154f52abf4cc0b752626647d5
       this.wilayas.map((w)=>{
         if(w.id==this.selectedWilayaId){
           dataForm.wilaya=null;
@@ -112,7 +120,7 @@ public demographies;
   }
 
       ajoucsv(){
-       this.router.navigateByUrl("/upload")
+       this.router.navigate(['/upload',this.idenq]);
       }
 
 

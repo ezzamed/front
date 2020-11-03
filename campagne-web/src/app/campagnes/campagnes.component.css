@@ -8,13 +8,13 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   width:50%;
- top:5px;
+ top:10px;
 
   margin-left:18%;
 
 
   position: relative;
-  top: 50px; left: 10px;
+  top: 60px; left: 10px;
 }
 
 .content-table thead tr {
@@ -51,14 +51,29 @@
   cursor:pointer
 }
 .c1{
-position: relative;
-  top: 120px; left: 10px;
+  position: absolute;
+     top:11%;
+     left:83%;
+     height:50px;
+     background-color:#F39C12 ;
+     width:205px;
+
+      border:none;
 }
 .ti{
 right:300px;
  text-align: center;
 }
+.g2{
+ font-size: 20px;
+ color: black;
+ margin-left:-50%;
+   text-align:center;
+   font-family:  'Montserrat';
+    position: relative;
+     top: 55px;
 
+}
 
 
 
@@ -90,8 +105,8 @@ body{
 }
 .se{
  position: absolute;
-   top:11%;
-   left:83%;
+   top:15%;
+   left:53%;
    height:50px;
    background-color:#F39C12 ;
    width:205px;

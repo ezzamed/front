@@ -1,6 +1,14 @@
 .map {
     width: 80%;
-    height: 400px;
-    position: absolute;
+    position: fixed;
     left:17%;
+    margin-top: 100px;
+  }
+
+  #map {
+    width: 80%;
+    height: 400px;
+    position: fixed;
+    left:17%;
+    margin-top: 100px;
   }

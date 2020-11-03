@@ -28,7 +28,11 @@ font-family: 'Montserrat';
 }
 
 .navbar { min-height: 60px; }
+.fa-users{
 
+}
+.b{
+color:#028f90;}
 
 
 
@@ -147,7 +151,7 @@ font-family: 'Montserrat';
 }
 
 .main_container .sidebar{
-  position: fixed;
+  position: absolute;
   top: 60px;
   left: 0;
   width: 225px;

@@ -1,2 +1,21 @@
- <div id = "map" class = "map"> </div>
-
+<div id = "map"> </div>
+<div class="row">
+    <!--<div id="map"></div>-->
+        <form #f="ngForm" (ngSubmit)="submit(f.value)" >
+            <div class="row map" style="left: 20%; margin-top:0px">
+                <div class="col" style="margin: 10px; float: left; margin-left: 50px">
+                    <select name="camp" ngModel>
+                        <option *ngFor="let c of camps" [value]="c.id">{{c.name}}</option>
+                    </select>
+                </div>
+                <div class="col" style="margin: 10px; float: left; margin-left: 50px">
+                    <select name="agent" ngModel>
+                        <option *ngFor="let a of agents" [value]="a.id">{{a.username}}</option>
+                    </select>
+                </div>
+                <div class="col" style="margin: 10px; float: left; margin-left: 50px">
+                    <input type="submit" value="Afficher" />
+                </div>
+            </div>
+        </form>
+</div>

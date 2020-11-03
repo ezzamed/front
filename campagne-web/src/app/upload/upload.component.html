@@ -1,7 +1,7 @@
 
 
 <div class="te"><input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" /></div>
-
+<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
 <div>
   <table  class="content-table" *ngIf="records.length > 0" >
     <thead> <tr class="active-row"><th>Nombre 0-11 mois</th><th>Nombre 12-59 mois</th><th>Population viseé</th></tr> </thead>
@@ -10,6 +10,7 @@
       <td>{{record.nb011}}</td>
       <td>{{record.nb1259}}</td>
       <td>{{record.popvisee}}</td>
+      <td>{{record.moughataa}}</td>
 
 
     </tbody>

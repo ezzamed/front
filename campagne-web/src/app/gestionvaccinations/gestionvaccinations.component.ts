@@ -8,19 +8,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./gestionvaccinations.component.css']
 })
 export class GestionvaccinationsComponent implements OnInit {
-public vaccinations;
+public vaccinations:any;
+public size:number=5;
+ public currentpage:number=0;
+ public totalPages:number;
+ public pages:Array<number>;
+ public currentKeyword: string="";
+ public test: string="";
+
     constructor(private capservice:CampagnevacService,private router:Router) { }
 
   ngOnInit(): void {
-  this.capservice.onGetVaccinations()
-                    .subscribe(data=>{
-                       this.vaccinations=data;
-                       console.log(this.vaccinations);                },err=>{
-                      console.log(err);
-                      })
-    }
+   this.capservice.getvaccinationspage(this.currentpage,this.size)
+                 .subscribe(data=>{
+
+                   this.totalPages=data["page"].totalPages;
+                   this.pages=new Array<number>(this.totalPages);
+                   this.vaccinations=data;
+                   //this.mode=2;
+                   },err=>{
+                   console.log(err);
+                   })
 
 
 
 
+
+}
+onPagedemogs(i){
+      this.currentpage=i;
+      this.ngOnInit();
+      //this.Chercherdemogs();
+      }
 }

@@ -1,9 +1,9 @@
-<!--
+
 <div class="row">
   <div class="col-lg-7">
     <app-my-chart
       [type]="'bar'"
-      [title]="'Taux de couverture Moughataa'"
+      [title]="'Statistiques par Moughataa'"
       [data]="moughataasData"
     ></app-my-chart>
   </div>
@@ -13,7 +13,7 @@
   <div class="col-lg-7">
     <app-my-chart
       [type]="'bar'"
-      [title]="'Taux de couverture par Wilaya'"
+      [title]="'Statistiques par Wilaya'"
       [data]="WilayasData"
     ></app-my-chart>
   </div>
@@ -23,10 +23,19 @@
   <div class="col-lg-7">
     <app-my-chart
       [type]="'bar'"
-      [title]="'Taux de couverture par Tranche d\'age'"
+      [title]="'Statistiques par Tranche d\'age'"
       [data]="moughataasData"
     ></app-my-chart>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-7">
+    <app-my-chart
+      [type]="'pie'"
+      [title]="'vaccins par tranche d\'age'"
+      [data]="vaccinsData"
+    ></app-my-chart>
+  </div>
+</div>
 
--->
+

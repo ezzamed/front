@@ -92,7 +92,7 @@ path:"pdfdown",component:PdfdownComponent
 path:"exportpdf/:id",component:ExportpdfComponent
 },
 {
-path:"upload",component:UploadComponent
+path:"upload/:id",component:UploadComponent
 },
 {
 path:"enquetes",component:EnquetesComponent
