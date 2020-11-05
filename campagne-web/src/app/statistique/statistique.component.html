@@ -23,16 +23,27 @@
   <div class="col-lg-7">
     <app-my-chart
       [type]="'bar'"
-      [title]="'Statistiques par Tranche d\'age'"
-      [data]="moughataasData"
+      [title]="'Statistiques par Tranche d\'age [0-11]'"
+      [data]="tracheAgeData011"
     ></app-my-chart>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-7">
     <app-my-chart
+      [type]="'bar'"
+      [title]="'Statistiques par Tranche d\'age [12-59]'"
+      [data]="tracheAgeData1259"
+    ></app-my-chart>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-7">
+    <app-my-chart
       [type]="'pie'"
-      [title]="'vaccins par tranche d\'age'"
+      [title]="'Statistiques par vaccin'"
       [data]="vaccinsData"
     ></app-my-chart>
   </div>

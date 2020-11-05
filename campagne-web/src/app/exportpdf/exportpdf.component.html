@@ -2,16 +2,25 @@
   <button (click)="exportexcel()"><i class="fa fa-table" aria-hidden="true"></i>Export to Excel</button>
 
   <table id="excel-table"  *ngIf="vaccinations">
-    <tr  ><th>Population visee</th><th>Population apres vaccination</th></tr>
-
     <tr>
       <th>Wilaya</th>
       <th>Moughataa</th>
-      <th>Population totale visee</th>
+      <th>Population totale</th>
       <th>0 a 11 mois</th>
       <th>12 a 59 mois</th>
 
     </tr>
+    <tr *ngFor="let m of moughataas">
+      <td>{{m.wilaya.name}}</td>
+      <td>{{m.moughataaname}}</td>
+      <td>{{statistiquesParTrancheAge011(vaccinations, m) + statistiquesParTrancheAge1259(vaccinations, m)}}</td>
+      <td>{{statistiquesParTrancheAge011(vaccinations, m)}}</td>
+      <td>{{statistiquesParTrancheAge1259(vaccinations, m)}}</td>
+
+
+
+    </tr>
+    <!--
     <tr *ngFor="let item of vaccinations">
 
       <td>{{item.moughataa.moughataaname}}</td>
@@ -22,6 +31,6 @@
 
     </tr>
 
-
+-->
   </table>
 </div>

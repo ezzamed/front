@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WilayaNamePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
+  transform(value: unknown, ...args: unknown[]): any {
     //return null;
     return this.getWilayaName(value);
   }

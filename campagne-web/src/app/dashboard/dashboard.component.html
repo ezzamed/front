@@ -23,8 +23,19 @@
     <div class="col-lg-7">
       <app-my-chart
   [type]="'bar'"
-  [title]="'Taux de couverture par Tranche d\'age'"
-  [data]="trangeAgeData"
+  [title]="'Taux de couverture par Tranche d\'age [0-11]'"
+  [data]="trangeAgeData011"
+></app-my-chart>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-7">
+      <app-my-chart
+  [type]="'bar'"
+  [title]="'Taux de couverture par Tranche d\'age [12-59]'"
+  [data]="trangeAgeData1259"
 ></app-my-chart>
     </div>
   </div>
