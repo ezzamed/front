@@ -1,4 +1,4 @@
-import { AppRole } from './Approle.model';
+import { AppRole } from './AppRole.model';
 export class AppUser{
 public id:number;
 public username:string;

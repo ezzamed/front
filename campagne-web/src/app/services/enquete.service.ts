@@ -12,5 +12,8 @@ export class EnqueteService {
     getEnquete(id){
         return this.httpClient.get(this.api+"enquete/getOne/"+id);
     }
+     getUser(id){
+            return this.httpClient.get(this.api+"user/getOne/"+id);
+        }
 
 }

@@ -58,10 +58,17 @@
      top:11%;
      left:83%;
      height:50px;
-     background-color:#F39C12 ;
+     background-color: #028f90 ;
      width:205px;
 
       border:none;
+}
+.g1{
+ font-size: 20px;
+ color: #028f90;
+  position: absolute;
+
+      left:120%;
 }
 .ti{
 right:300px;
@@ -108,7 +115,7 @@ body{
 }
 .se{
  position: absolute;
-   top:15%;
+   top:12%;
    left:53%;
    height:50px;
    background-color:#F39C12 ;

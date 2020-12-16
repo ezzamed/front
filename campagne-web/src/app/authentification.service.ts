@@ -36,6 +36,9 @@ constructor(private httpClient:HttpClient) { }
     isUser(){
      return this.roles.indexOf('USER')>=0;
         }
+         isAgent(){
+             return this.roles.indexOf('AGENT')>=0;
+                }
      isAuthenticated(){
         return this.roles && (this.isAdmin() || this.isUser());
             }

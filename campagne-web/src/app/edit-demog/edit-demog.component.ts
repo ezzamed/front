@@ -20,6 +20,7 @@ export class EditDemogComponent implements OnInit {
    this.capservice.getRessource(this.url)
      .subscribe(data=>{
        this.curentproduct=data;
+       console.log(this.curentproduct);
        },err=>{
        console.log(err);})
   }

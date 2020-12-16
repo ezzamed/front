@@ -14,10 +14,12 @@ public appUsers;
 public users;
 public size:number=5;
  public currentpage:number=0;
- public totalPages:number;
- public pages:Array<number>;
+ //public totalPages:number;
+ //public pages:Array<number>;
  public currentKeyword: string="";
  public mode:number=1;
+   totalpages:number;
+   Pages:Array<number>;
 
   constructor(private capservice:CampagnevacService ,private router:Router, private demogService:DemographieService) { }
 
@@ -25,8 +27,8 @@ public size:number=5;
     this.capservice.getpageusers(this.currentpage,this.size)
                  .subscribe(data=>{
 
-                   this.totalPages=data["page"].totalPages;
-                   this.pages=new Array<number>(this.totalPages);
+                   this.totalpages=data.totalPages;
+                   this.Pages=new Array(this.totalpages);
                    this.appUsers=data;
                    //this.mode=2;
                    },err=>{
@@ -52,16 +54,20 @@ public size:number=5;
 
 
         Deleteuser(a){
-            let conf=confirm("etes vous sur");
+            let conf=confirm("êtes-vous sûr de vouloir supprimer cet utilisateur");
             if(conf){
               this.demogService.deleteUser(a.id);
+                this.router.navigateByUrl("/users");
+
             }
+
             }
              Editduser(a){
 
                                                //console.log(d);
-              let url=a._links.self.href;
-              this.router.navigateByUrl("/edit-user/"+btoa(url));
+              //let url=a._links.self.href;
+              //this.router.navigateByUrl("/edit-user/"+btoa(url));
+               this.router.navigate(['edit-user/',a.id]);
 
                        }
 
@@ -69,6 +75,7 @@ public size:number=5;
               this.router.navigateByUrl("/nouveau-user");
               }
               onselect(a){
+                  this.router.navigate(['/detailsuser',a.id]);
               }
 
 

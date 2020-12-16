@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Demographie } from '../model/demographie.model';
 import { ActivatedRoute } from '@angular/router';
 import { DemographieService } from '../services/DemographieService';
+import { Moughataa } from '../model/moughataa.model';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -17,6 +18,7 @@ export class UploadComponent  {
     public demographies;
     public demo;
     public enquetes;
+    public moughataas;
     public records: any[] = [];
     @ViewChild('csvReader') csvReader: any;
     public getid(){
@@ -25,6 +27,8 @@ export class UploadComponent  {
 
 
     uploadListener($event: any): void {
+
+
 
       let text = [];
       let files = $event.srcElement.files;
@@ -53,21 +57,36 @@ export class UploadComponent  {
         this.fileReset();
       }
     }
+      getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
 
-
-    getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
       let csvArr = [];
 
       for (let i = 1; i < csvRecordsArray.length; i++) {
         let curruntRecord = (<string>csvRecordsArray[i]).split(',');
         if (curruntRecord.length == headerLength) {
+
+                this.capservice.onGetmoughataas()
+                                                .subscribe(data=>{
+                                                 this.moughataas=data;
+
+
+
           let enquete: Enquete = new Enquete();
 
           enquete.nb011 = Number.parseInt(curruntRecord[0].toString());
           enquete.nb1259 = Number.parseInt(curruntRecord[1]);
           enquete.popvisee = Number.parseInt(curruntRecord[2]);
-           //enquete.moughataa = (curruntRecord[3].toString());
+          //enquete.moughataa = curruntRecord[3];
+           console.log(this.moughataas);
+          this.moughataas.map((m)=>{
+                  if(m.moughataaname==curruntRecord[3])
+                    enquete.moughataa = m;
+                   //console.log(m);
+
+
+                })
            csvArr.push(enquete);
+            });
         }
       }
       return csvArr;
@@ -92,7 +111,7 @@ export class UploadComponent  {
 
     }
      sendDataToServer(){
-     this.capservice.getdemograph1()
+    /* this.capservice.getdemograph1()
                                   .subscribe(data=>{
                                   this.demographies=data;
               this.capservice.getenquetes()
@@ -107,34 +126,36 @@ export class UploadComponent  {
                              this.demo = d;
 
 
-                               }
-                  this.enquetes._embedded.enquetes.forEach((e: Enquete) => {
+                               }*/
+                 /* this.enquetes._embedded.enquetes.forEach((e: Enquete) => {
 
                                        if (e.id ==d.id) {
                                          this.demo = d;
 
 
 
-                                           }
+                                           }*/
 
 
 
  console.log(this.demo);
-     this.demogService.getDemographie(this.demo.id).subscribe((demog)=>{
+ console.log(this.records);
+     this.demogService.getDemographie( this.activatedRoute.snapshot.params.id).subscribe((demog)=>{
      console.log(demog);
      this.records.forEach(record=>{
      console.log(record);
              record.demographie = demog;
+
             //console.log(dataForm);
              this.capservice.saveEnquetetoDemo(record).subscribe((res)=>{
                this.router.navigateByUrl("/t/"+this.activatedRoute.snapshot.params.id);
              })
            })
            })
-            })
-                                          })
-                 })
-                                          })
+           // })
+                                         // })
+                // })
+                                          //})
 
        /*this.records.forEach(record=>{
        this.capservice.saveRessource2(this.capservice.host+"/enquetes",record)

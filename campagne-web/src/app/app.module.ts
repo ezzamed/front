@@ -45,6 +45,7 @@ import { MapComponent } from './map/map.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { WilayaNamePipe } from './pipes/wilaya-name.pipe';
 import { IdMoughataaPipe } from './pipes/id-moughataa.pipe';
+import { DetailsuserComponent } from './detailsuser/detailsuser.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { IdMoughataaPipe } from './pipes/id-moughataa.pipe';
     StatistiqueComponent,
     WilayaNamePipe,
     IdMoughataaPipe,
+    DetailsuserComponent,
 
   ],
   imports: [

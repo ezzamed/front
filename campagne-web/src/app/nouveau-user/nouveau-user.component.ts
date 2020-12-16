@@ -10,31 +10,44 @@ import { Router } from '@angular/router';
 export class NouveauUserComponent implements OnInit {
    public curentproduct:AppUser;
  public appRoles;
+ public selectedAppRoleId;
   constructor(private capservice:CampagnevacService,private router:Router) { }
 
   ngOnInit(): void {
   this.capservice.onGetroles()
                 .subscribe(data=>{
                    this.appRoles=data;
-                   console.log(this.appRoles);                },err=>{
+                   //console.log(this.appRoles);
+                    },err=>{
                   console.log(err);
                   })
                 }
-   onSaveUser(data:any){
-      this.capservice.saveRessource1(this.capservice.host+"/appUsers",data)
+   onSaveUser(data){
+  // console.log()
+
+   this.appRoles.map((a)=>{
+           if(a.id==this.selectedAppRoleId)
+             data.appRole = a;
+             console.log(data);
+
+         })
+      this.capservice.saveRessource1(data)
       .subscribe(res=>{
       //this.router.navigateByUrl("/demogs")
-      this.curentproduct=res;
+     // this.curentproduct=res;
       this.router.navigateByUrl("/users");
 
 
-      },err=>{
-      console.log(err);
+
       })
 }
     nouveauser(){
     this.router.navigateByUrl("/nouveau-user")
     }
+     setSelectedMoughataa(mgt){
+        //console.log(mgt)
+        this.selectedAppRoleId = mgt;
+      }
 
 }
 

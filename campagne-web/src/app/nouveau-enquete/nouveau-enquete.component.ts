@@ -64,23 +64,27 @@ this.idenq= this.activatedRoute.snapshot.params.id;
                   })
                   }
     onSavedonnee(dataForm){
+
 //<<<<<<< HEAD
       dataForm.popvisee = parseInt(dataForm.nb011) + parseInt(dataForm.nb1259);
+      //console.log(this.selectedWilayaId);
 //=======
    //dataForm.popvisee = parseInt(dataForm.nb011) + parseInt(dataForm.nb1259);
 //>>>>>>> 0f04c53db63dfbb154f52abf4cc0b752626647d5
       this.wilayas.map((w)=>{
         if(w.id==this.selectedWilayaId){
           dataForm.wilaya=null;
+           //console.log(dataForm);
         }
       })
       this.moughataas.map((m)=>{
         if(m.id==this.selectedMoughataaId)
           dataForm.moughataa = m;
+
       })
       this.demogService.getDemographie(this.demo.id).subscribe((demog)=>{
         dataForm.demographie = demog;
-        //console.log(dataForm);
+        console.log(dataForm);
         this.capservice.saveEnquetetoDemo(dataForm).subscribe((res)=>{
           this.router.navigateByUrl("/t/"+this.activatedRoute.snapshot.params.id);
         })

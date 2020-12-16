@@ -29,6 +29,7 @@ import { GestionwilayasComponent } from './gestionwilayas/gestionwilayas.compone
 import { GestionvaccinationsComponent } from './gestionvaccinations/gestionvaccinations.component';
 import { EditEnqueteComponent } from './edit-enquete/edit-enquete.component';
 import { DetailsenqueteComponent } from './detailsenquete/detailsenquete.component';
+import { DetailsuserComponent } from './detailsuser/detailsuser.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NouveauMoughataaComponent } from './nouveau-moughataa/nouveau-moughataa.component';
@@ -124,6 +125,9 @@ path:"edit-enquete/:id",component:EditEnqueteComponent
 },
 {
 path:"detailsenquete/:id",component:DetailsenqueteComponent
+},
+{
+path:"detailsuser/:id",component:DetailsuserComponent
 },
 {
 path:"edit-user/:id",component:EditUserComponent

@@ -6,11 +6,13 @@
 <div>
 
   <table class="es" *ngIf="demo">
-    <tr>
-      <td> <div class="g1">Information de la Demographie:{{demo.id}}</div></td>
+    <tr >
+      <td> <div class="g1">Informations de la Demographie:{{demo.id}}</div></td>
 
-      <td>Nom:{{demo.name}}</td>
-      <td>Date: {{demo.date}}</td>
+      <td class="e1" >Nom:{{demo.name}}</td>
+      <td class="e2">Date: {{demo.date}}</td>
+
+
 
     </tr>
   </table>
@@ -19,31 +21,38 @@
 <div>
   <table  class="content-table" *ngIf="enquetes" >
 
-    <thead> <tr><th>ID</th><th>0 à 11mois</th><th>12 à 59mois</th><th>Population totale viseé</th><th>Moughataa</th><th>Details</th> <th>Editer</th> <th>Supprimer</th></tr></thead>
-    <tbody><tr *ngFor="let e of enquetes._embedded.enquetes" >
+    <thead> <tr><th>0 à 11mois</th><th>12 à 59mois</th><th>Population totale viseé</th><th>Moughataa</th><th>Details</th> <th>Editer</th> <th>Supprimer</th></tr></thead>
+    <tbody><tr *ngFor="let e of enquetes.content"  >
 
-      <td>{{e.id}}</td>
+
       <td>{{e.nb011}}</td>
-      <td>{{e.nb1259}}</td>
-      <td>{{e.popvisee}}</td>
-      <td>{{e.moughataa.moughataaname}}</td>
+      <td >{{e.nb1259}}</td>
+      <td >{{e.popvisee}}</td>
+      <td >{{e.moughataa.moughataaname}}</td>
 
-      <td><button class="" (click)="details(e)"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
-      </svg></i></button></td>
 
-      <td><button class="" (click)="Editenquete(e)"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-arrow-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M12 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-      </svg></i></button></td>
 
-      <td><button (click)="supprimerenquete(e)"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-      </svg></i></button></td>
+
+       <td > <i class="fa fa-trash" aria-hidden="true" (click)="supprimerenquete(e)"></i></td>
+      <td ><i class="fa fa-pencil" aria-hidden="true" (click)="Editenquete(e)"></i></td>
+      <td ><i class="fa fa-info-circle" aria-hidden="true" (click)="details(e)"></i></td>
+
+
+
+
 
     </tr>
+
+
+      <ul class="c1" *ngIf="Pages" class="nav nav-pills espace">
+      <li  Class="clickable" [ngClass]="i==currentPage?'active':''"*ngFor="let p of Pages;let i=index ">
+        <a (click)="onPageSE(i)">{{i+1}}</a></li>
+    </ul>
+    </tbody>
+
 
   </table>
 
 </div>
+
 

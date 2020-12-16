@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
 isAdmin(){
   return this.authservice.isAdmin();
   }
+  isAgent(){
+    return this.authservice.isAgent();
+    }
 
 
   }

@@ -23,12 +23,14 @@
 
 
 
-        <div class="input-container">
-          <select class="form-control" name="role" ngModel required>
 
-            <option *ngFor="let r of appRoles" [ngValue]="r">{{r.roleName}}</option>
+      <div *ngIf="appRoles">
+        <div class="input-container">
+          <select class="form-control" name="role" ngModel required  (change)="setSelectedMoughataa($event.target.value)">
+            <option *ngFor="let r of appRoles" [value]="r.id">{{r.roleName}}</option>
           </select>
         </div>
+      </div>
 
         <div class="button-container">
         <button><span>Ajouter</span></button>

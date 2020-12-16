@@ -1,0 +1,21 @@
+
+
+<div>
+
+  <table class="es" *ngIf="user">
+    <tr>
+      <td> <div class="g1">Information de l'utilisateur:{{user.id}}</div></td>
+
+
+      <td>Nom d'utilisateur: {{user.username}}</td>
+      <div *ngFor="let r of user.roles">
+
+      <td>Roles: {{r.roleName}}</td>
+      </div>
+
+
+    </tr>
+  </table>
+</div>
+
+

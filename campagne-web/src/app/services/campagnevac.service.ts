@@ -28,7 +28,7 @@ export class CampagnevacService {
   public moughataas;
   public host:string="http://localhost:8080"
   public d:Demographie;
-
+ public api:string = "http://localhost:8080/";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -47,12 +47,12 @@ export class CampagnevacService {
   public getvaccinspage(page:number,size:number){
     return this.httpClient.get(this.host+"/vaccins?page="+page+"&size="+size);
     }
-    public getpageusers(page:number,size:number){
-        return this.httpClient.get(this.host+"/appUsers?page="+page+"&size="+size);
+    public getpageusers(page:number,size:number): Observable<any>{
+        return this.httpClient.get(this.host+"/allUserspage?page="+page+"&size="+size);
         }
-   public getusers(){
+  /* public getusers(){
         return this.httpClient.get("http://localhost:8080/allUsers");
-    }
+    }*/
     public onGetroles(){
      return this.httpClient.get("http://localhost:8080/allRoles");
     }
@@ -96,8 +96,8 @@ export class CampagnevacService {
   public saveRessource(url,data):Observable<Demographie>{
    return this.httpClient.post<Demographie>(url,data);
   }
-   public saveRessource1(url,data):Observable<AppUser>{
-     return this.httpClient.post<AppUser>(url,data);
+   public saveRessource1(data){
+      return this.httpClient.post(this.host+"/AjouterDonnesUtilisateur",data);
     }
        public saveRessource2(url,data):Observable<Enquete>{
          return this.httpClient.post<Enquete>(url,data);
@@ -112,9 +112,13 @@ public getRessource(url):Observable<Demographie>{
 public getRessourceappuser(url):Observable<AppUser>{
      return this.httpClient.get<AppUser>(url);
 }
- public getRessource1(url):Observable<Enquete>{
+public getRessource1(url){
+     return this.httpClient.get(this.api+"getenquetecurrent/"+url);
+     }
+
+ /*public getRessource1(url):Observable<Enquete>{
      return this.httpClient.get<Enquete>(url);
-}
+}*/
 
 public UpdatRessource(url,data):Observable<Demographie>{
    return this.httpClient.put<Demographie>(url,data);
@@ -179,6 +183,9 @@ public getwilaya(){
      getpromou(){
         return this.httpClient.get("http://localhost:8080/moughataas");
      }
+      getusers(){
+             return this.httpClient.get("http://localhost:8080/appUsers");
+          }
       getvaccinations(){
              return this.httpClient.get("http://localhost:8080/vaccinations");
           }
@@ -209,12 +216,11 @@ onGetmoughatadropdown(){
 ajoutdoneedemo(formData){
 }
 
-getEnquetes(demo){
-
+getEnquetes(demo,page:number,size:number){
 let url=demo._links.enquetes.href.replace("{?projection}","");
                  return this.httpClient.get(url+"?projection=e1");
-
 }
+
 public getdemograph():Observable<Demographie>{
    return this.httpClient.get<Demographie>("http://localhost:8080/demographies");
 }
@@ -285,8 +291,12 @@ public getdemograph():Observable<Demographie>{
 
     }
 
-    saveEnquetetoDemo(dataForm){
-      return this.httpClient.post(this.host+"/AjouterDonnesDemographie",dataForm);
+    saveEnquetetoDemocsv(record){
+          return this.httpClient.post(this.host+"/AjouterDonnesparcsv",record);
+        }
+
+    saveEnquetetoDemo(record){
+      return this.httpClient.post(this.host+"/AjouterDonnesDemographie",record);
     }
     public saveen(url,dataForm):Observable<Enquete>{
 
@@ -309,5 +319,10 @@ public getdemograph():Observable<Demographie>{
   getAllAgents(){
     return this.httpClient.get(this.host+"/agents/all");
   }
+  getEnquetes2(page:number,size:number,id): Observable<any>{
+    return this.httpClient.get(this.host+"/allEnquetes/"+id+"?page="+page+"&size="+size);
+
+  }
+
 
 }

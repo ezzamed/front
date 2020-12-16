@@ -13,6 +13,7 @@
     <table  class="content-table" *ngIf="moughataas" >
       <thead> <tr class="active-row"><th>ID</th><th>Nom</th><th>Wilaya</th><th></th></tr> </thead>
       <tbody> <tr *ngFor="let m of moughataas">
+
         <td>{{m._links.self.href | idMoughataa}}</td>
         <td>{{m.moughataaname}}</td>
         <td>{{(m._links.wilaya.href | wilayaName | async)?.name}}</td>

@@ -13,25 +13,29 @@ import { DemographieService } from '../services/DemographieService';
 })
 export class TComponent implements OnInit {
 public enquetes;
-
+public ig;
 public id;
 public demographies;
- demo:Demographie
+ demo:Demographie;
 
 public cal;
-
+public enquetesdemo;
 public sub;
 public test;
+public x;
+
+ public totalpages:number;
+ public   Pages:Array<number>;
 
  public size:number=5;
- public currentpage:number=0;
- public totalPages:number;
- public pages:Array<number>;
+ public currentPage:number=1;
  public currentKeyword: string="";
  //public test: string="";
  public wilayas;
  public moughataas;
  public  selectedemo;
+ public enq;
+ public demos;
 
  public mode:number=1;
  public de:number=9;
@@ -57,7 +61,7 @@ public test;
       this.capservice.getdemograph1()
                    .subscribe(data=>{
                    this.demographies=data;
-                   console.log(data);
+                   //console.log(data);
 
 
    // this.activatedRoute.paramMap.subscribe(params => {
@@ -66,11 +70,50 @@ public test;
             if (d.id == this.activatedRoute.snapshot.params.id) {
               this.demo = d;
              // console.log(this.demo);
-               this.capservice.getEnquetes(this.demo)
+                 this.capservice.getEnquetes2(this.currentPage,this.size,this.activatedRoute.snapshot.params.id)
+                             .subscribe(data=>{
+                              //console.log(data);
+
+
+                        this.totalpages=data.totalPages;
+                         this.Pages=new Array(this.totalpages);
+
+
+                               this.enquetes=data;
+                               //console.log(data);
+
+                            /* this.enquetes.forEach((e: Enquete) => {
+                                 console.log(e);
+
+                                                                      if (e.demographie.id == this.demo.id) {
+                                                                        //this.demo = d;
+                                                                        //this.x=e;
+
+
+
+                                                                       // console.log(this.x);
+
+
+
+
+
+                                                                          }
+                                                                          })*/
+
+
+
+                               //console.log(this.enquetes);
+                               //this.mode=2;
+                               },err=>{
+                               console.log(err);
+                               })
+
+             // console.log(this.demo);
+               /*this.capservice.getEnquetes(this.demo)
                  .subscribe(data=>{
                 // console.log(data)
                  this.enquetes=data;
-                        })
+                        })*/
 
             }
 
@@ -174,14 +217,23 @@ this.router.navigate(['/nouveau-enquete',this.demo.id]);
 }
 Editenquete(e){
           //console.log(d);
-        let url=e._links.self.href;
-        this.router.navigateByUrl("/edit-enquete/"+btoa(url));
+        //let url=e._links.self.href;
+        let url=e;
+        console.log(e);
+        //this.router.navigateByUrl("/edit-enquete/"+btoa(url));
+        this.router.navigate(['edit-enquete/',e.id]);
+
 
          }
 
          details(e){
          this.router.navigate(['/detailsenquete',e.id]);
 }
+ onPageSE(i){
+  this.currentPage=i;
+  this.ngOnInit();
+  //this.Chercherdemogs();
+  }
 
 
 }

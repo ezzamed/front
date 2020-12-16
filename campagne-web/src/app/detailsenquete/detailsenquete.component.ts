@@ -27,7 +27,7 @@ enq:Enquete;
 
               if (e.id == this.activatedRoute.snapshot.params.id) {
                 this.enq = e;
-               // console.log(this.demo);
+               //console.log(this.enq);
 
 
               }
