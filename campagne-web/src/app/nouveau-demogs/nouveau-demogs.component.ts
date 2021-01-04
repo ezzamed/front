@@ -16,8 +16,12 @@ export class NouveauDemogsComponent implements OnInit {
   ngOnInit(): void {
   }
   onSaveDemog(data:any){
-    this.capservice.saveRessource(this.capservice.host+"/demographies",data)
+
+    //this.capservice.(this.capservice.host+"/demographies",data)
+    this.capservice.savedemographie(data)
+
     .subscribe(res=>{
+
     //this.router.navigateByUrl("/demogs")
     this.curentproduct=res;
     this.router.navigateByUrl("/demogs");

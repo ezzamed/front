@@ -49,9 +49,10 @@ export class DashboardComponent {
     const datasets1 = {
       label: "",
       data: [],
-      backgroundColor: '#028f90',
+      backgroundColor: 'white',
       borderColor: '#028f90'
     };
+
     const datasetsWilaya = {
       label: "",
       data: [],

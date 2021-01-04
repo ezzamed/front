@@ -53,10 +53,7 @@
 .clickable{
   cursor:pointer
 }
-.c1{
-position: relative;
-  top: 120px; left: 10px;
-}
+
 .g1{
  font-size: 20px;
  color: #028f90;
@@ -118,6 +115,12 @@ body{
     border:none;
 
 }
+.c1{
+position: fixed;
+  top: 120px; left: 10px;
+  size:120px;
+}
+
 .btnes{
 background-color:#F39C12 ;}
 

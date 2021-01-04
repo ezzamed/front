@@ -1,16 +1,25 @@
 
-  <div class="row">
+  <div class="row" >
+
+
+
     <div class="col-lg-7">
+
       <app-my-chart
-  [type]="'bar'"
-  [title]="'Taux de couverture Moughataa'"
+  [type]="'line'"
+  [title]="'Taux de couverture par Moughataa'"
   [data]="moughataasData"
 ></app-my-chart>
-    </div>
+      </div>
+
+
   </div>
 
-  <div class="row">
-    <div class="col-lg-7">
+
+
+
+  <div class="row" >
+    <div class="col-lg-5">
       <app-my-chart
   [type]="'bar'"
   [title]="'Taux de couverture par Wilaya'"

@@ -28,7 +28,7 @@ public x;
  public   Pages:Array<number>;
 
  public size:number=5;
- public currentPage:number=1;
+ public currentPage:number=0;
  public currentKeyword: string="";
  //public test: string="";
  public wilayas;

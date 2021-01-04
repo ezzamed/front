@@ -13,6 +13,9 @@ table a:hover {
     color: #bd5a35;
     text-decoration:underline;
 }
+.e{
+width:800px;
+margin-left:0%;}
 table {
     width: 30%;
     font-family:Arial, Helvetica, sans-serif;

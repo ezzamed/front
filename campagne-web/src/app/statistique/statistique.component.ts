@@ -31,9 +31,12 @@ export class StatistiqueComponent implements OnInit {
   public demographie;
   public wilayas;
   public vaccins;
+
   moughataasData = {
     labels: [],
     datasets: []
+
+
   };
   WilayasData = {
     labels: [],
@@ -60,8 +63,20 @@ export class StatistiqueComponent implements OnInit {
       label: "",
       data: [],
       backgroundColor: '#028f90',
-      borderColor: 'rgb(255, 99, 132)'
+      borderColor: 'rgb(255, 99, 132)',
+       options: {
+                         scales: {
+                            yAxes: [{
+                            ticks: {
+                            max:10,
+                            min:-1,
+
+                            }
+                            }]
+                            }}
+
     };
+
     const datasetsWilaya = {
       label: "",
       data: [],
@@ -83,7 +98,7 @@ export class StatistiqueComponent implements OnInit {
     const datasetsVaccin = {
       label: "",
       data: [],
-      backgroundColor: '#028f90',
+      backgroundColor: ['#028f90','red'],
       borderColor: 'rgb(255, 99, 132)'
     };
 
@@ -128,6 +143,7 @@ export class StatistiqueComponent implements OnInit {
 
 
     //par moughataa
+
     this.statistiqueService.getCampgane(this.activatedRoute.snapshot.params.id)
       .subscribe((data) => {
         this.camp = data;

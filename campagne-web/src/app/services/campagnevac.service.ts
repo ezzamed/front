@@ -96,6 +96,9 @@ export class CampagnevacService {
   public saveRessource(url,data):Observable<Demographie>{
    return this.httpClient.post<Demographie>(url,data);
   }
+   public saveRessourceca(url,data):Observable<Campagne>{
+         return this.httpClient.post<Campagne>(url,data);
+        }
    public saveRessource1(data){
       return this.httpClient.post(this.host+"/AjouterDonnesUtilisateur",data);
     }
@@ -164,9 +167,7 @@ public getwilaya(){
     getenquetes(){
          return this.httpClient.get("http://localhost:8080/enquetes");
         }
-    public saveRessourceca(url,data):Observable<Campagne>{
-       return this.httpClient.post<Campagne>(url,data);
-      }
+
       public saveRessourcecen(url,data):Observable<Enquete>{
              return this.httpClient.post<Enquete>(url,data);
             }
@@ -298,6 +299,10 @@ public getdemograph():Observable<Demographie>{
     saveEnquetetoDemo(record){
       return this.httpClient.post(this.host+"/AjouterDonnesDemographie",record);
     }
+     savedemographie(data){
+          return this.httpClient.post(this.host+"/AjouterDemographie",data);
+        }
+
     public saveen(url,dataForm):Observable<Enquete>{
 
            return this.httpClient.post<Enquete>(url,dataForm);

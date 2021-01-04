@@ -46,18 +46,28 @@
 
 
         </tr>
-        <tr>  <ul class="c1" *ngIf="Pages" class="nav nav-pills">
-          <li  Class="clickable" [ngClass]="i==currentpage?'active':''"*ngFor="let p of Pages;let i=index ">
-            <a (click)="onPagedemogs(i)">{{i+1}}</a></li>
-        </ul></tr>
+
+
 
 
         </tbody>
+
       </table>
 
 
 
+
+
     </div>
+    <div  *ngIf="Pages">
+      <ul  class="nav nav-pills espace" >
+        <li class="nav-item modal-content-clickable" *ngFor="let page of Pages; let i=index">
+          <a class="nav-link  decalage" [ngClass]="i==currentpage?'active':''"
+             (click)="onPagedemogs(i)">{{i + 1}}</a>
+        </li>
+      </ul>
+    </div>
+
 
 
 

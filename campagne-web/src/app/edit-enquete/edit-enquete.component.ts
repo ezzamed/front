@@ -29,7 +29,7 @@ export class EditEnqueteComponent implements OnInit {
           console.log(res);
           let result = res;
           this.curentproduct=result;
-          console.log(this.curentproduct);
+          console.log(this.curentproduct.moughataas);
         // });
          },err=>{
          console.log(err);})
