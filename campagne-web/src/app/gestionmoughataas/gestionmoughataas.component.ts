@@ -28,7 +28,7 @@ export class GestionmoughataasComponent implements OnInit {
 
     this.capservice.getmgts(this.currentpage, this.size)
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.totalPages = data["page"].totalPages;
         this.pages = new Array<number>(this.totalPages);
         this.moughataas = data;
@@ -60,6 +60,20 @@ export class GestionmoughataasComponent implements OnInit {
   nouvdemo() {
     this.router.navigateByUrl("/nouveau-moughataa")
   }
+   Deletemoughataa(m){
+              let conf=confirm("êtes-vous sûr de vouloir supprimer cette moughataa");
+              if(conf){
+                this.demogService.deletemoughataa(m.id);
+                  this.router.navigateByUrl("/gestionmoughataas");
+
+              }
+
+              }
+               Editmoughataa(m){
+               console.log(m);
+                 this.router.navigate(['edit-moughataa/',m.id]);
+
+                         }
 
 
 

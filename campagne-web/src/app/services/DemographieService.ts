@@ -13,6 +13,10 @@ export class DemographieService {
     deleteDemographie(id){
         this.httpClient.delete(this.api+"supprimerDemographie/"+id).subscribe();
     }
+    deletemoughataa(id){
+            this.httpClient.delete(this.api+"supprimermoughataa/"+id).subscribe();
+        }
+
     updateDemographie(demog){
         return this.httpClient.put(this.api+"modifierDemographie", demog).subscribe();
     }
@@ -22,9 +26,16 @@ export class DemographieService {
      deleteEnquete(id){
             this.httpClient.delete(this.api+"supprimerEnquete/"+id).subscribe();
         }
+         deleteWilaya(id){
+                    this.httpClient.delete(this.api+"supprimerWilaya/"+id).subscribe();
+                }
+
         updateEnquete(enquete){
             return this.httpClient.put(this.api+"modifierEnquete", enquete).subscribe();
         }
+         updateRole(appRole){
+                    return this.httpClient.put(this.api+"modifierRole", appRole).subscribe();
+                }
 
     getDemographie(id){
         return this.httpClient.get(this.api+"getDemographie/"+id);
@@ -42,6 +53,10 @@ export class DemographieService {
          deleteCampagne(id){
             this.httpClient.delete(this.api+"supprimerCampagne/"+id).subscribe();
             }
+
+          deleterole(id){
+                     this.httpClient.delete(this.api+"supprimerole/"+id).subscribe();
+                     }
 
 
 }

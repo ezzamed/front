@@ -77,6 +77,20 @@ public size:number=5;
               onselect(a){
                   this.router.navigate(['/detailsuser',a.id]);
               }
+              onChercher(form: any){
+                  this.currentpage=0;
+                  this.currentKeyword=form.keyword;
+                  this.Chercherdemogs();}
+                Chercherdemogs(){
+                this.capservice.getuserBykeyword(this.currentKeyword,this.currentpage,this.size)
+                  .subscribe(data=>{
+                // this.totalpages=data.totalPages;
+                                   // this.Pages=new Array(this.totalpages);
+                                    //this.appUsers=data;
+                    },err=>{
+                    console.log(err);
+                    });
+                    }
 
 
 

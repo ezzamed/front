@@ -22,7 +22,7 @@
 <div>
   <table  class="content-table" *ngIf="enquetes" >
 
-    <thead> <tr><th>0 à 11mois</th><th>12 à 59mois</th><th>Population totale viseé</th><th>Moughataa</th><th>Details</th> <th>Editer</th> <th>Supprimer</th></tr></thead>
+    <thead> <tr><th>0 à 11mois</th><th>12 à 59mois</th><th>Population totale viseé</th><th>Moughataa</th><th>Details</th> <th>Editer</th> <th>Supprimer</tr></thead>
     <tbody><tr *ngFor="let e of enquetes.content"  >
       <td>{{e.nb011}}</td>
       <td >{{e.nb1259}}</td>
@@ -37,14 +37,14 @@
     </tr>
 
     </tbody>
-
+    <ul class="nav nav-pills espace">
+      <li class="nav-item modal-content-clickable" *ngFor="let page of Pages; let i=index">
+        <a class="nav-link  decalage" [ngClass]="i==currentPage?'active':''"
+           (click)="onPageSE(i)">{{i + 1}}</a>
+      </li>
+    </ul>
   </table>
-  <ul class="nav nav-pills espace">
-    <li class="nav-item modal-content-clickable" *ngFor="let page of Pages; let i=index">
-      <a class="nav-link  decalage" [ngClass]="i==currentPage?'active':''"
-         (click)="onPageSE(i)">{{i + 1}}</a>
-    </li>
-  </ul>
+
 </div>
 
 

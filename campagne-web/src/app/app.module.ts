@@ -46,6 +46,9 @@ import { StatistiqueComponent } from './statistique/statistique.component';
 import { WilayaNamePipe } from './pipes/wilaya-name.pipe';
 import { IdMoughataaPipe } from './pipes/id-moughataa.pipe';
 import { DetailsuserComponent } from './detailsuser/detailsuser.component';
+import { EditRoleComponent } from './edit-role/edit-role.component';
+import { EditMoughataaComponent } from './edit-moughataa/edit-moughataa.component';
+import { EditWilayaComponent } from './edit-wilaya/edit-wilaya.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +93,9 @@ import { DetailsuserComponent } from './detailsuser/detailsuser.component';
     WilayaNamePipe,
     IdMoughataaPipe,
     DetailsuserComponent,
+    EditRoleComponent,
+    EditMoughataaComponent,
+    EditWilayaComponent,
 
   ],
   imports: [

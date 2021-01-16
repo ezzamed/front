@@ -11,14 +11,19 @@
   <div>
 
     <table  class="content-table" *ngIf="moughataas" >
-      <thead> <tr class="active-row"><th>ID</th><th>Nom</th><th>Wilaya</th><th></th></tr> </thead>
+      <thead> <tr class="active-row"><th>Nom</th><th>Wilaya</th><th>Supprimer</th><th>Modifier</th></tr> </thead>
       <tbody> <tr *ngFor="let m of moughataas">
 
-        <td>{{m._links.self.href | idMoughataa}}</td>
+
         <td>{{m.moughataaname}}</td>
         <td>{{(m._links.wilaya.href | wilayaName | async)?.name}}</td>
 
-        <td><a class="btnes">Details</a></td>
+
+        <td>
+          <i class="fa fa-trash" aria-hidden="true" (click)="Deletemoughataa(m)"></i></td>
+        <td><i class="fa fa-pencil" aria-hidden="true" (click)="Editmoughataa(m)"></i></td>
+
+
 
 
       </tr>

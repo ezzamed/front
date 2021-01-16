@@ -64,16 +64,10 @@ export class StatistiqueComponent implements OnInit {
       data: [],
       backgroundColor: '#028f90',
       borderColor: 'rgb(255, 99, 132)',
-       options: {
-                         scales: {
-                            yAxes: [{
-                            ticks: {
-                            max:10,
-                            min:-1,
 
-                            }
-                            }]
-                            }}
+       options: { responsive:false
+
+                         }
 
     };
 

@@ -2132,6 +2132,10 @@ body{
 .form_wrap .input_radio:checked ~ span{
 	background: #ebd0ce;
 }
+.c1{
+position: relative;
+  top: 120px; left: 10px;
+}
 
 .form_wrap .submit_btn{
 	width: 100%;

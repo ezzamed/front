@@ -41,6 +41,9 @@ export class CampagnevacService {
       public getmgts(page:number,size:number){
         return this.httpClient.get(this.host+"/moughataas?page="+page+"&size="+size);
         }
+        public getwilayapage(page:number,size:number){
+                return this.httpClient.get(this.host+"/wilayas?page="+page+"&size="+size);
+                }
          public getvaccinationspage(page:number,size:number){
                 return this.httpClient.get(this.host+"/vaccinations?page="+page+"&size="+size);
                 }
@@ -88,7 +91,7 @@ export class CampagnevacService {
     return this.httpClient.get(this.host+"/demographies/search/Bynamedemopage?mc="+mc+"&page="+page+"0&size="+size);
 }
  public getuserBykeyword(mc:string,page:number,size:number){
-    return this.httpClient.get(this.host+"/users/search/Bynamedemopage?mc="+mc+"&page="+page+"0&size="+size);
+    return this.httpClient.get(this.host+"/allUserspage/search/Bynameuser?mc="+mc+"&page="+page+"0&size="+size);
 }
   public deleteRessource(url){
       return this.httpClient.delete(url);

@@ -2,18 +2,30 @@
 <div class="g2">Liste des Wilayas</div>
   <div>
     <table  class="content-table" *ngIf="wilayas" >
-      <thead> <tr class="active-row"><th>ID</th><th>Nom</th><th></th></tr> </thead>
-      <tbody> <tr *ngFor="let w of wilayas" >
-        <td>{{w.id}}</td>
+      <thead> <tr class="active-row"><th>Nom</th><th>Supprimer</th><th>Modifier</th></tr> </thead>
+      <tbody> <tr *ngFor="let w of wilayas._embedded.wilayas" >
+
         <td>{{w.name}}</td>
-        <td><a class="btnes">Details</a></td>
+        <td>
+          <i class="fa fa-trash" aria-hidden="true" (click)="Deletewilaya(w)"></i></td>
+        <td><i class="fa fa-pencil" aria-hidden="true" (click)="Editwilaya(w)"></i></td>
 
 
 
       </tr>
+      <tr>
+
+        <ul class="c1" *ngIf="pages" class="nav nav-pills">
+          <li  Class="clickable" [ngClass]="i==currentpage?'active':''"*ngFor="let p of pages;let i=index ">
+            <a (click)="onPagedemogs(i)">{{i+1}}</a></li>
+        </ul></tr>
+
 
       </tbody>
+
+
     </table>
+
 
 
 
@@ -35,6 +47,7 @@
 
       </form>
     </div>
+
 
   </div>
 

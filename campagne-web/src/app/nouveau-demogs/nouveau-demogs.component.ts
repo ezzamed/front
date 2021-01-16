@@ -23,7 +23,9 @@ export class NouveauDemogsComponent implements OnInit {
     .subscribe(res=>{
 
     //this.router.navigateByUrl("/demogs")
-    this.curentproduct=res;
+    //this.curentproduct=res;
+
+    //console.log(this.curentproduct);
     this.router.navigateByUrl("/demogs");
     },err=>{
     console.log(err);
