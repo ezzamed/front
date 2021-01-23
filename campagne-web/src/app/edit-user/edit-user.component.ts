@@ -13,6 +13,7 @@ import {EnqueteService} from '../services/enquete.service';
 export class EditUserComponent implements OnInit {
   public curentproduct;
   public url: string;
+  public appRoles;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService, private capservice: CampagnevacService, private enqueteService:EnqueteService) { }
 
     ngOnInit(): void {
@@ -23,6 +24,12 @@ export class EditUserComponent implements OnInit {
          this.curentproduct=data;
          },err=>{
          console.log(err);})
+          this.capservice.onGetroles()
+                           .subscribe(data=>{
+                              this.appRoles=data;
+                              console.log(this.appRoles);                },err=>{
+                             console.log(err);
+                             })
     }
     onUpdateUser(user) {
       this.demogService.updateUser(user);

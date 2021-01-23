@@ -19,11 +19,20 @@
         <div class="bar"></div>
       </div>
 
+      <div *ngIf="appRoles">
+        <div class="input-container">
+          <select class="form-control" name="" ngModel required >
+            <option *ngFor="let a of appRoles" [value]="a.id">{{a.roleName}}</option>
+          </select>
+        </div>
+      </div>
+
       <div class="button-container">
         <button><span>Editer</span></button>
       </div>
 
     </form>
+
   </div>
 </div>
 

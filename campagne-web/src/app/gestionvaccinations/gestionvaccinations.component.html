@@ -1,8 +1,8 @@
 <div ><h1 classe ="ti">Liste des vaccinations</h1>>/div>
   <div>
     <table  class="content-table" *ngIf="vaccinations" >
-      <thead> <tr class="active-row"><th>Date</th><th>Nombre enfants</th><th>Tranche d'age</th><th>Moughataa</th><th></th></tr> </thead>
-      <tbody> <tr *ngFor="let v of vaccinations">
+      <thead> <tr class="active-row"><th>Date</th><th>Nombre enfants</th><th>Tranche d'age</th><th>Moughataa</th></tr> </thead>
+      <tbody> <tr *ngFor="let v of vaccinations.content">
         <td>{{v.date_vaccination}}</td>
         <td>{{v.nombre_enfant}}</td>
         <td>{{v.tranche_age}}</td>
@@ -16,10 +16,14 @@
 
 
       </tbody>
-      <tr>  <ul class="c1" *ngIf="pages" class="nav nav-pills">
-        <li  Class="clickable" [ngClass]="i==currentpage?'active':''"*ngFor="let p of pages;let i=index ">
-          <a (click)="onPagedemogs(i)">{{i}}</a></li>
-      </ul></tr>
+      <tr>
+        <ul class="nav nav-pills espace">
+          <li class="nav-item modal-content-clickable" *ngFor="let page of Pages; let i=index">
+            <a class="nav-link  decalage" [ngClass]="i==currentPage?'active':''"
+               (click)="onPageSE(i)">{{i + 1}}</a>
+          </li>
+        </ul>
+     </tr>
     </table>
 
 

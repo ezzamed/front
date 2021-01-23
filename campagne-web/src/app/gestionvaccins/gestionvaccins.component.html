@@ -1,10 +1,13 @@
 <div class="g2">Liste des Vaccins </div>
 <div>
   <table  class="content-table" *ngIf="vaccins" >
-    <thead> <tr class="active-row"><th>ID</th><th>Nom</th></tr> </thead>
-    <tbody> <tr *ngFor="let v of vaccins">
-      <td>{{v.id}}</td>
+    <thead> <tr class="active-row"><th>Nom</th><th>Supprimer</th><th>Modifier</th></tr> </thead>
+    <tbody> <tr *ngFor="let v of vaccins._embedded.vaccins">
+
       <td>{{v.nom_vaccin}}</td>
+      <td>
+        <i class="fa fa-trash" aria-hidden="true" (click)="Deletevaccin(v)"></i></td>
+      <td><i class="fa fa-pencil" aria-hidden="true" (click)="Editvaccin(v)"></i></td>
 
 
 

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CampagnevacService } from '../services/campagnevac.service';
 import { AppUser } from '../model/appUser.model';
+import { ActivatedRoute } from '@angular/router';
+import { Enquete } from '../model/enquete.model';
+import { Demographie } from '../model/demographie.model';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { DemographieService } from '../services/DemographieService';
 @Component({
   selector: 'app-gestionvaccinations',
   templateUrl: './gestionvaccinations.component.html',
@@ -9,22 +14,45 @@ import { Router } from '@angular/router';
 })
 export class GestionvaccinationsComponent implements OnInit {
 public vaccinations:any;
-public size:number=5;
- public currentpage:number=0;
- public totalPages:number;
- public pages:Array<number>;
- public currentKeyword: string="";
- public test: string="";
 
-    constructor(private capservice:CampagnevacService,private router:Router) { }
+
+
+
+
+
+
+ public sub;
+ public test;
+ public x;
+
+  public totalpages:number;
+  public   Pages:Array<number>;
+
+  public size:number=5;
+  public currentPage:number=0;
+  public currentKeyword: string="";
+  //public test: string="";
+
+  public  selectedemo;
+
+
+  public mode:number=1;
+  public de:number=9;
+
+    constructor(private capservice:CampagnevacService,
+                        private activatedRoute: ActivatedRoute,private router:Router,private demogService:DemographieService) { }
 
   ngOnInit(): void {
-   this.capservice.getvaccinationspage(this.currentpage,this.size)
-                 .subscribe(data=>{
+   this.capservice.getVaccinations(this.currentPage,this.size)
+                                .subscribe(data=>{
+                                 //console.log(data);
 
-                   this.totalPages=data["page"].totalPages;
-                   this.pages=new Array<number>(this.totalPages);
-                   this.vaccinations=data;
+
+                           this.totalpages=data.totalPages;
+                            this.Pages=new Array(this.totalpages);
+
+
+                                  this.vaccinations=data;
                    //this.mode=2;
                    },err=>{
                    console.log(err);
@@ -36,8 +64,14 @@ public size:number=5;
 
 }
 onPagedemogs(i){
-      this.currentpage=i;
+      this.currentPage=i;
       this.ngOnInit();
       //this.Chercherdemogs();
       }
+      onPageSE(i){
+        this.currentPage=i;
+        this.ngOnInit();
+        //this.Chercherdemogs();
+        }
+
 }

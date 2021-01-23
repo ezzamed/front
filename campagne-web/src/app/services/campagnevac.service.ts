@@ -331,6 +331,11 @@ public getdemograph():Observable<Demographie>{
     return this.httpClient.get(this.host+"/allEnquetes/"+id+"?page="+page+"&size="+size);
 
   }
+   getVaccinations(page:number,size:number): Observable<any>{
+      return this.httpClient.get(this.host+"/allVacs/"+"?page="+page+"&size="+size);
+
+    }
 
 
+getvaccinatins2
 }

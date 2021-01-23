@@ -107,7 +107,7 @@ body{
 .se{
  position: absolute;
    top:12%;
-   left:66%;
+   left:73%;
    height:50px;
    background-color:#F39C12 ;
    width:205px;
@@ -117,8 +117,12 @@ body{
 }
 .c1{
 position: fixed;
-  top: 120px; left: 10px;
+  top: 525px; left: 250px;
   size:120px;
+  color:#028f90 ;
+}
+.nav-item modal-content-clickable{
+background-color:red ;
 }
 
 .btnes{

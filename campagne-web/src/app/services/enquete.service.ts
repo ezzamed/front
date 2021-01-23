@@ -18,5 +18,8 @@ export class EnqueteService {
      getUser(id){
             return this.httpClient.get(this.api+"user/getOne/"+id);
         }
+ getwilaya(id){
+            return this.httpClient.get(this.api+"wilaya/getOnewilaya/"+id);
+        }
 
 }

@@ -15,6 +15,10 @@ export class EditEnqueteComponent implements OnInit {
  public curentproduct;
   public url: string;
   public wilayas;
+  public moughataas;
+
+ public selectedWilayaId;
+ public selectedMoughataaId;
   constructor(private router:Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService, private capservice: CampagnevacService, private enqueteService:EnqueteService) { }
 
 
@@ -29,7 +33,7 @@ export class EditEnqueteComponent implements OnInit {
           console.log(res);
           let result = res;
           this.curentproduct=result;
-          console.log(this.curentproduct.moughataas);
+         // console.log(this.curentproduct.moughataa);
         // });
          },err=>{
          console.log(err);})
@@ -46,4 +50,16 @@ export class EditEnqueteComponent implements OnInit {
 
 
 }
+getMoughataas(wilaya){
+    this.selectedWilayaId = wilaya;
+    this.demogService.getWilayaMoughataa(wilaya).subscribe((data)=>{
+      this.moughataas = data;
+      console.log(this.moughataas);
+    })
+  }
+
+  setSelectedMoughataa(mgt){
+    console.log(mgt)
+    this.selectedMoughataaId = mgt;
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CampagnevacService } from '../services/campagnevac.service';
-import { AppUser } from '../model/appUser.model';
+import { Wilaya } from '../model/wilaya.model';
 import { Router } from '@angular/router';
 import { DemographieService } from '../services/DemographieService';
 @Component({
@@ -27,7 +27,8 @@ public wilayas;
                          this.totalPages = data["page"].totalPages;
                          this.pages = new Array<number>(this.totalPages);
                          this.wilayas = data;
-                         console.log(this.wilayas);                },err=>{
+                         //console.log(this.wilayas);
+                            },err=>{
                           console.log(err);
                         })
       }
@@ -64,7 +65,9 @@ Deletewilaya(w){
                                                //console.log(d);
               //let url=a._links.self.href;
               //this.router.navigateByUrl("/edit-user/"+btoa(url));
-               this.router.navigate(['edit-wilaya/',w.id]);
+             // console.log(w.id);
+
+              this.router.navigate(['edit-wilaya/',w.id]);
 
                        }
 

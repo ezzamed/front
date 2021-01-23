@@ -30,8 +30,17 @@ export class DemographieService {
                     this.httpClient.delete(this.api+"supprimerWilaya/"+id).subscribe();
                 }
 
+          deleteVaccin(id){
+                            this.httpClient.delete(this.api+"supprimerVaccin/"+id).subscribe();
+                        }
+
         updateEnquete(enquete){
             return this.httpClient.put(this.api+"modifierEnquete", enquete).subscribe();
+        }
+
+
+        onUpdateWilaya(wilaya){
+            return this.httpClient.put(this.api+"modifierWilaya", wilaya).subscribe();
         }
          updateRole(appRole){
                     return this.httpClient.put(this.api+"modifierRole", appRole).subscribe();

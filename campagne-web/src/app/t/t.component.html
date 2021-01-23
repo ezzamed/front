@@ -1,7 +1,7 @@
 <button class="se" (click)="nouvenquete()"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
 </svg>
-  Nouvelle Enquete</button>
+  Nouvelles données démographiques</button>
 
 <div>
 
@@ -36,16 +36,20 @@
 
     </tr>
 
+
     </tbody>
-    <ul class="nav nav-pills espace">
-      <li class="nav-item modal-content-clickable" *ngFor="let page of Pages; let i=index">
-        <a class="nav-link  decalage" [ngClass]="i==currentPage?'active':''"
-           (click)="onPageSE(i)">{{i + 1}}</a>
-      </li>
+<div class="c1">
+    <ul  *ngIf="Pages" class="nav nav-pills espace">
+      <li Class="clickable" [ngClass]="i==currentPage?'active':''" *ngFor="let p of Pages;let i=index ">
+        <a (click)="onPageSE(i)">{{i+1}}</a></li>
     </ul>
+</div>
+
   </table>
 
+
 </div>
+
 
 
 

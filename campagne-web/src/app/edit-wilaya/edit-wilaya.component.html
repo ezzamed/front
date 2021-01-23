@@ -1,1 +1,28 @@
-<p>edit-wilaya works!</p>
+<div class="container"  *ngIf="curentproduct">
+  <div class="card" ></div>
+  <div class="card" >
+    <h2 class="title">Editer</h2>
+    <form  #f="ngForm" (ngSubmit)="onUpdateWilaya(curentproduct)" >
+
+
+
+
+      <div class="input-container">
+        <input type="text" required="required"  name="appRole"  ngModel [(ngModel)]="curentproduct.name" />
+        <label for="#{label}">nom </label>
+        <div class="bar"></div>
+      </div>
+
+      <div class="button-container">
+        <button><span>Modifier</span></button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+

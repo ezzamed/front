@@ -18,9 +18,11 @@
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input type="text" id="#{label}" required="required"  name="statut"  ngModel [(ngModel)]="curentproduct.statut"/>
-        <label for="#{label}">Statut</label>
-        <div class="bar"></div>
+        <select class="form-control" name="statut" ngModel required >
+          <option>En cours</option>
+          <option>Finie</option>
+
+        </select>
       </div>
       <div class="input-container">
         <input type="text" id="#{label}" required="required"  name="demographie"  ngModel [(ngModel)]="curentproduct.demographie"/>
