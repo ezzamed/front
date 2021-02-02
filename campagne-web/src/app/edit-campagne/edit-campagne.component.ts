@@ -12,9 +12,16 @@ import { DemographieService } from '../services/DemographieService';
 export class EditCampagneComponent implements OnInit {
 public curentproduct:Campagne;
   public url: string;
+  public demographies;
 constructor(private router: Router, private activatedRoute: ActivatedRoute, private demogService: DemographieService, private capservice: CampagnevacService) { }
 
   ngOnInit(): void {
+   this.capservice.onGetdemographiedropdown()
+          .subscribe(data=>{
+             this.demographies=data;
+            },err=>{
+            console.log(err);
+            })
    this.url=atob(this.activatedRoute.snapshot.params.id)
      this.capservice.getRessource4(this.url)
        .subscribe(data=>{

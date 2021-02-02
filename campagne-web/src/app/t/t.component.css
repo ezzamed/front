@@ -8,7 +8,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   width:50%;
- top:10px;
+ top:2px;
 
   margin-left:18%;
 
@@ -60,6 +60,7 @@
   position: absolute;
 
       left:120%;
+      top:80px;
 }
 .ti{
 right:300px;
@@ -313,7 +314,7 @@ body{
 .g1{
  font-size: 20px;
  color: #028f90;
- margin-left:-102%;
+ margin-left:-101%;
  top:15%;
 }
 .e1{
@@ -324,12 +325,13 @@ body{
  top:15%;
 }
 .e2{
- font-size: 15px;
+ font-size: 16px;
  color: black;
  position:absolute;
  margin-left:57%;
  top:15%;
 }
+
 
 
 

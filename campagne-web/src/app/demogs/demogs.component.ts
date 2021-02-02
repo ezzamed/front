@@ -84,10 +84,13 @@ onSaveDonneedemogra(){
       });
       }
       Deletedomogs(d){
-            let conf=confirm("etes vous sur");
+            let conf=confirm("êtes vous sur de vouloir supprimer cette démographie");
             if(conf){
               this.demogService.deleteDemographie(d.id);
+                 this.router.navigateByUrl("/demogs");
+
             }
+
             /*
             this.capservice.deleteRessource(d._links.self.href)
             .subscribe(data=>{

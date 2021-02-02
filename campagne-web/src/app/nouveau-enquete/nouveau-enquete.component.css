@@ -406,6 +406,17 @@ body {
   }
 }
 
+.input-container-1{
+position: relative;
+  background: none;
+  width: 57%;
+  height: 60px;
+  border: 0;
+  color: #212121;
+  left:15%;
+
+}
+
 
 
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Campagne } from '../model/campagne.model';
 import { ActivatedRoute } from '@angular/router';
 import { StatistiqueSevice } from '../services/StatistiqueSevice';
+import * as html2pdf from 'html2pdf.js';
 import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-exportpdf',
@@ -108,6 +109,21 @@ export class ExportpdfComponent {
     XLSX.writeFile(wb, this.fileName);
 
   }
+ download() {
+  const options={
+  name:'output.pdf',
+ image:{type:'jpeg'},
+  html2canvas:{},
+  jsPDF:{orientation:'landscape'}
+  }
+  const element:Element=document.getElementById('excel-table')
+  html2pdf()
+     .from(element)
+     .set(options)
+     .save()
+     }
+
+
 
 
 

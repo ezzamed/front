@@ -2,7 +2,7 @@
 <div class="container" *ngIf="demographies">
   <div class="card"></div>
   <div class="card">
-    <h2 class="title">Nouveau Utilisateur</h2>
+    <h2 class="title">Nouvelle campagne</h2>
     <form #f="ngForm" (ngSubmit)="onSaveCampagne(f.value)">
       <div class="input-container">
         <input type="text" required="required"  name="name" ngModel />
@@ -15,7 +15,7 @@
         <div class="bar"></div>
       </div>
 
-      <div class="input-container">
+      <div class="input-container-1">
         <select class="form-control" name="statut" ngModel required >
           <option>En cours</option>
           <option>Finie</option>
@@ -27,7 +27,7 @@
 
 
 
-        <div class="input-container">
+        <div class="input-container-1">
           <select class="form-control" name="demographie" ngModel required>
 
             <option *ngFor="let d of demographies._embedded.demographies" [ngValue]="d._links.self.href">{{d.name}}</option>

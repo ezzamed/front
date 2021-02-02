@@ -80,7 +80,7 @@ onPagedemogs(i){
     }
 
  Deletecampagne(c){
-            let conf=confirm("etes vous sur");
+            let conf=confirm("êtes vous sur de vouloir supprimer cette campagne");
             if(conf){
               this.demogService.deleteCampagne(c.id);
             }

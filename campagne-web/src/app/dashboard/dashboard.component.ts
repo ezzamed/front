@@ -49,15 +49,15 @@ export class DashboardComponent {
     const datasets1 = {
       label: "",
       data: [],
-      backgroundColor: 'white',
-      borderColor: '#028f90'
+      backgroundColor: '#028f90',
+      borderColor: ''
     };
 
     const datasetsWilaya = {
       label: "",
       data: [],
       backgroundColor: '#028f90',
-      borderColor: '#028f90'
+      borderColor: ''
     };
     const datasetsTrancheAge011 = {
       label: "",
@@ -66,7 +66,7 @@ export class DashboardComponent {
       data1: [],
 
       backgroundColor: '#028f90',
-      borderColor: '#028f90'
+      borderColor: ''
 
     };
     const datasetsTrancheAge1259 = {
@@ -76,7 +76,7 @@ export class DashboardComponent {
       data1: [],
 
       backgroundColor: '#028f90',
-      borderColor: '#028f90'
+      borderColor: ''
 
     };
 

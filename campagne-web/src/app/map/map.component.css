@@ -12,3 +12,39 @@
     left:17%;
     margin-top: 100px;
   }
+  .input-container{
+  position: relative;
+    background: none;
+    width: 20%;
+    height: 60px;
+    border: 0;
+    color: #212121;
+    left:15%;
+    top:37px;
+
+  }
+   .input-container-1{
+    position: relative;
+      background: none;
+      width: 20%;
+      height: 60px;
+      border: 0;
+      color: #212121;
+      left:15%;
+      top:5px;
+
+    }
+    .col{
+
+        position: relative;
+          background: none;
+          width: 20%;
+          height: 60px;
+          border: 0;
+          color: #212121;
+          left:15%;
+          top:40px;
+
+
+        }
+

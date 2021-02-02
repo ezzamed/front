@@ -210,7 +210,7 @@ this.router.navigate(['/nouveau-enquete',this.demo.id]);
 
 
  supprimerenquete(e){
-            let conf=confirm("etes vous sur");
+            let conf=confirm("êtes vous sur de vouloir supprimer ces données démographiques");
             if(conf){
               this.demogService.deleteEnquete(e.id);
             }
@@ -234,6 +234,23 @@ Editenquete(e){
   this.ngOnInit();
   //this.Chercherdemogs();
   }
+  onChercher(form: any){
+      this.currentPage=0;
+      this.currentKeyword=form.keyword;
+      this.Chercherdemogs();}
+    Chercherdemogs(){
+   this.capservice.getEnquetes2(this.currentPage,this.size,this.activatedRoute.snapshot.params.id)
+                                .subscribe(data=>{
+                                 //console.log(data);
+
+
+                           this.totalpages=data.totalPages;
+                            this.Pages=new Array(this.totalpages);
+        this.enquetes=data;
+        },err=>{
+        console.log(err);
+        });
+        }
 
 
 }

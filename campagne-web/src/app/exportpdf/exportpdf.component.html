@@ -1,6 +1,7 @@
 <div style=" margin: auto; width: 50%;">
-  <button (click)="exportexcel()"><i class="fa fa-table" aria-hidden="true"></i>Export to Excel</button>
-
+  <button (click)="exportexcel()"><i class="fa fa-table" aria-hidden="true"></i>Export en Excel</button>
+  <p></p>
+  <button (click)="download()"><i class="far fa-file-pdf" aria-hidden="true"></i>Exporter en PDF </button>
   <table class="e" id="excel-table"  *ngIf="vaccinations">
     <tr>
       <th>Wilaya</th>

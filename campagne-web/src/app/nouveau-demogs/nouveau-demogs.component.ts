@@ -17,6 +17,7 @@ export class NouveauDemogsComponent implements OnInit {
   }
   onSaveDemog(data:any){
 
+
     //this.capservice.(this.capservice.host+"/demographies",data)
     this.capservice.savedemographie(data)
 
@@ -27,9 +28,12 @@ export class NouveauDemogsComponent implements OnInit {
 
     //console.log(this.curentproduct);
     this.router.navigateByUrl("/demogs");
+
+
     },err=>{
     console.log(err);
     })
+     let conf=confirm("Les donnees ont été correctement inserés ");
   }
   onNewDemog(){
   this.mode=1;
