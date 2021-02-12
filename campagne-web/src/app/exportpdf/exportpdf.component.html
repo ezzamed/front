@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style=" margin: auto; width: 50%;">
   <button (click)="exportexcel()"><i class="fa fa-table" aria-hidden="true"></i>Export en Excel</button>
   <p></p>
-  <button (click)="download()"><i class="far fa-file-pdf" aria-hidden="true"></i>Exporter en PDF </button>
+  <button (click)="download()"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Exporter en PDF </button>
   <table class="e" id="excel-table"  *ngIf="vaccinations">
     <tr>
       <th>Wilaya</th>

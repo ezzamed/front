@@ -40,6 +40,9 @@ public x;
  public mode:number=1;
  public de:number=9;
 
+ public totalPages:number;
+  public pages:Array<number>;
+
     constructor(private capservice:CampagnevacService,
         private activatedRoute: ActivatedRoute,private router:Router,private demogService:DemographieService) { }
 
@@ -239,14 +242,15 @@ Editenquete(e){
       this.currentKeyword=form.keyword;
       this.Chercherdemogs();}
     Chercherdemogs(){
-   this.capservice.getEnquetes2(this.currentPage,this.size,this.activatedRoute.snapshot.params.id)
+   this.capservice.getenquetesBykeyword(this.currentKeyword,this.currentPage,this.size)
                                 .subscribe(data=>{
                                  //console.log(data);
 
+  this.totalPages=data["page"].totalPages;
+       this.pages=new Array<number>(this.totalPages);
 
-                           this.totalpages=data.totalPages;
-                            this.Pages=new Array(this.totalpages);
-        this.enquetes=data;
+
+                                                          this.enquetes=data;
         },err=>{
         console.log(err);
         });

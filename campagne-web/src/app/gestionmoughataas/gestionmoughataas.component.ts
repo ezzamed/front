@@ -71,7 +71,8 @@ export class GestionmoughataasComponent implements OnInit {
               }
                Editmoughataa(m){
                console.log(m);
-                 this.router.navigate(['edit-moughataa/',m.id]);
+                 //this.router.navigate(['edit-moughataa/',m.id]);
+                     this.router.navigate(['edit-moughataa/',m.id]);
 
                          }
 

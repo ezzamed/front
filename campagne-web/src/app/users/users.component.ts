@@ -69,7 +69,7 @@ public size:number=5;
               //this.router.navigateByUrl("/edit-user/"+btoa(url));
                this.router.navigate(['edit-user/',a.id]);
 
-                       }
+                      }
 
                nouveauser(){
               this.router.navigateByUrl("/nouveau-user");

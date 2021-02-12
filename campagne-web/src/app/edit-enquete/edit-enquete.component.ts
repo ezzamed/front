@@ -47,6 +47,7 @@ export class EditEnqueteComponent implements OnInit {
    onUpdateEnquete(enquete) {
       this.demogService.updateEnquete(enquete);
       this.router.navigateByUrl("/t");
+      //this.router.navigateByUrl("/t");
 
 
 }

@@ -49,6 +49,8 @@ import { DetailsuserComponent } from './detailsuser/detailsuser.component';
 import { EditRoleComponent } from './edit-role/edit-role.component';
 import { EditMoughataaComponent } from './edit-moughataa/edit-moughataa.component';
 import { EditWilayaComponent } from './edit-wilaya/edit-wilaya.component';
+import { AuthGuardService } from './model/connexion.model';
+
 
 @NgModule({
   declarations: [
@@ -102,7 +104,9 @@ import { EditWilayaComponent } from './edit-wilaya/edit-wilaya.component';
     BrowserModule,
     AppRoutingModule, HttpClientModule, FormsModule, ChartModule
    ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

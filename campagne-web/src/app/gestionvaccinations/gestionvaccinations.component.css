@@ -8,13 +8,13 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   width:50%;
- top:10px;
+ top:3px;
 
   margin-left:18%;
 
 
   position: relative;
-  top: 60px; left: 10px;
+   left: 10px;
 }
 
 .content-table thead tr {
@@ -63,6 +63,8 @@
 .ti{
 right:300px;
  text-align: center;
+ font-size: 20px;
+  margin-left:-45%;
 }
 .g2{
  font-size: 20px;

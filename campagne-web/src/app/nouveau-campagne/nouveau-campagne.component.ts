@@ -26,7 +26,7 @@ export class NouveauCampagneComponent implements OnInit {
       this.capservice.saveRessourceca(this.capservice.host+"/campagnes",data)
       .subscribe(resu=>{
       console.log(resu);
-      //this.router.navigateByUrl("/demogs")
+      this.router.navigateByUrl("/campagnes")
       this.curentcampagne=resu;
       },err=>{
       console.log(err);

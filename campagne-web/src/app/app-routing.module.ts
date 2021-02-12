@@ -40,127 +40,133 @@ import { GestionvaccinsComponent } from './gestionvaccins/gestionvaccins.compone
 import { EditCampagneComponent } from './edit-campagne/edit-campagne.component';
 import { MapComponent } from './map/map.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
+import { AuthGuardService } from './model/connexion.model';
 const routes: Routes = [
 {
-path:"demogs",component:DemogsComponent
+path:"demogs",component:DemogsComponent,canActivate: [AuthGuardService]
 },
 {
-path:"nouveau-demogs",component:NouveauDemogsComponent
+path:"t",component:DemogsComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-demog/:id",component:EditDemogComponent
+path:"nouveau-demogs",component:NouveauDemogsComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-moughataa/:id",component:EditMoughataaComponent
+path:"edit-demog/:id",component:EditDemogComponent,canActivate: [AuthGuardService]
 },
 {
-path:"wilaya",component:WilayaComponent
+path:"edit-moughataa/:id",component:EditMoughataaComponent,canActivate: [AuthGuardService]
 },
 {
-path:"mychart",component:MychartComponent
+path:"wilaya",component:WilayaComponent,canActivate: [AuthGuardService]
 },
 {
-path:"donneechart",component:DonneechartComponent
+path:"mychart",component:MychartComponent,canActivate: [AuthGuardService]
+},
+{
+path:"donneechart",component:DonneechartComponent,canActivate: [AuthGuardService]
 },
 {
 path:"login",component:LoginComponent
 },
 {
-path:"essai",component:EssaiComponent
+path:"essai",component:EssaiComponent,canActivate: [AuthGuardService]
 },
 {
-path:"nouveau-campagne",component:NouveauCampagneComponent
+path:"nouveau-campagne",component:NouveauCampagneComponent,canActivate: [AuthGuardService]
 },
 {
-path:"essai2",component:Essai2Component
+path:"essai2",component:Essai2Component,canActivate: [AuthGuardService]
 },
 {
-path:"dashboard/:id",component:DashboardComponent
+path:"dashboard/:id",component:DashboardComponent,canActivate: [AuthGuardService]
 },
 {
-path:"my-chart",component:MyChartComponent
+path:"my-chart",component:MyChartComponent,canActivate: [AuthGuardService]
 },
 {
-path:"t/:id",component:TComponent
+path:"t/:id",component:TComponent,canActivate: [AuthGuardService]
 },
 {
-path:"tt",component:TtComponent
+path:"tt",component:TtComponent,canActivate: [AuthGuardService]
 },
 {
-path:"users",component:UsersComponent
+path:"users",component:UsersComponent,canActivate: [AuthGuardService]
 },
 {
-path:"nouveau-user",component:NouveauUserComponent
+path:"nouveau-user",component:NouveauUserComponent,canActivate: [AuthGuardService]
 },
 {
-path:"pdfdown",component:PdfdownComponent
+path:"pdfdown",component:PdfdownComponent,canActivate: [AuthGuardService]
 },
 {
-path:"exportpdf/:id",component:ExportpdfComponent
+path:"exportpdf/:id",component:ExportpdfComponent,canActivate: [AuthGuardService]
 },
 {
-path:"upload/:id",component:UploadComponent
+path:"upload/:id",component:UploadComponent,canActivate: [AuthGuardService]
 },
 {
-path:"enquetes",component:EnquetesComponent
+path:"enquetes",component:EnquetesComponent,canActivate: [AuthGuardService]
 },
 {
-path:"campagnes",component:CampagnesComponent
+path:"campagnes",component:CampagnesComponent,canActivate: [AuthGuardService]
 },
 {
-path:"nouveau-enquete/:id",component:NouveauEnqueteComponent
+path:"nouveau-enquete/:id",component:NouveauEnqueteComponent,canActivate: [AuthGuardService]
 },
 {
-path:"statistique",component:StatistiqueComponent
+path:"statistique",component:StatistiqueComponent,canActivate: [AuthGuardService]
 },
 
 {
-path:"gestionroles",component:GestionrolesComponent
+path:"gestionroles",component:GestionrolesComponent,canActivate: [AuthGuardService]
 },
 {
-path:"gestionmoughataas",component:GestionmoughataasComponent
+path:"gestionmoughataas",component:GestionmoughataasComponent,canActivate: [AuthGuardService]
 },
 {
-path:"gestionwilayas",component:GestionwilayasComponent
+path:"gestionwilayas",component:GestionwilayasComponent,canActivate: [AuthGuardService]
 },
 {
-path:"gestionvaccinations",component:GestionvaccinationsComponent
+path:"gestionvaccinations",component:GestionvaccinationsComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-enquete/:id",component:EditEnqueteComponent
+path:"edit-enquete/:id",component:EditEnqueteComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-role/:id",component:EditRoleComponent
+path:"edit-role/:id",component:EditRoleComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-wilaya/:id",component:EditWilayaComponent
+path:"edit-wilaya/:id",component:EditWilayaComponent,canActivate: [AuthGuardService]
 },
 {
-path:"detailsenquete/:id",component:DetailsenqueteComponent
+path:"detailsenquete/:id",component:DetailsenqueteComponent,canActivate: [AuthGuardService]
 },
 {
-path:"detailsuser/:id",component:DetailsuserComponent
+path:"detailsuser/:id",component:DetailsuserComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-user/:id",component:EditUserComponent
+path:"edit-user/:id",component:EditUserComponent,canActivate: [AuthGuardService]
 },
 {
-path:"gestion",component:GestionComponent
+path:"gestion",component:GestionComponent,canActivate: [AuthGuardService]
 },
 {
-path:"nouveau-moughataa",component:NouveauMoughataaComponent
+path:"nouveau-moughataa",component:NouveauMoughataaComponent,canActivate: [AuthGuardService]
 },
 {
-path:"gestionvaccins",component:GestionvaccinsComponent
+path:"gestionvaccins",component:GestionvaccinsComponent,canActivate: [AuthGuardService]
 },
 {
-path:"edit-campagne/:id",component:EditCampagneComponent
+path:"edit-campagne/:id",component:EditCampagneComponent,canActivate: [AuthGuardService]
 },
 {
-path:"map",component:MapComponent
+path:"map",component:MapComponent,canActivate: [AuthGuardService]
+
 },
 {
-path:"statistique/:id",component:StatistiqueComponent
+path:"statistique/:id",component:StatistiqueComponent,canActivate: [AuthGuardService]
+
 },
 ];
 

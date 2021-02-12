@@ -1,3 +1,4 @@
+<script src="https://kit.fontawesome.com/7be683339d.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -11,14 +12,14 @@
           Gestion
           <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li *ngIf="isAdmin()"><a routerLink="/users">Gestion des Utilisateurs</a></li>
+          <li *ngIf="isAdmin()"><a routerLink="/users"><i class="fa fa-users" aria-hidden="true"></i>Gestion des Utilisateurs</a></li>
 
-          <li><a routerLink="/gestionroles">Gestion des Roles</a></li>
-          <li><a routerLink="/gestionmoughataas">Gestion des Moughataas</a></li>
-          <li><a routerLink="/gestionwilayas">Gestion des Wilayas</a></li>
-          <li><a routerLink="/gestionvaccins">Gestions des Vaccins</a></li>
-          <li><a routerLink="/gestionvaccinations">Gestions Vaccinations</a></li>
-          <li><a routerLink="/exportpdf">Gestions Vaccinations</a></li>
+          <li><a routerLink="/gestionroles"><i class="fab fa-accessible-icon"></i><i class="fa fa-users" aria-hidden="true"></i>Gestion des Roles</a></li>
+          <li><a routerLink="/gestionmoughataas"><i class="fa fa-location-arrow" aria-hidden="true"></i>Gestion des Moughataas</a></li>
+          <li><a routerLink="/gestionwilayas"><i class="fa fa-location-arrow" aria-hidden="true"></i>Gestion des Wilayas</a></li>
+          <li><a routerLink="/gestionvaccins"><i class="fa fa-thermometer-full" aria-hidden="true"></i>Gestions des Vaccins</a></li>
+          <li><a routerLink="/gestionvaccinations"><i class="fa fa-thermometer-full" aria-hidden="true"></i>Gestions Vaccinations</a></li>
+
 
         </ul>
       </li>

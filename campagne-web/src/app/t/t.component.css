@@ -54,14 +54,7 @@
   cursor:pointer
 }
 
-.g1{
- font-size: 20px;
- color: #028f90;
-  position: absolute;
 
-      left:120%;
-      top:80px;
-}
 .ti{
 right:300px;
  text-align: center;
@@ -73,9 +66,10 @@ right:300px;
    text-align:center;
    font-family:  'Montserrat';
     position: relative;
-     top: 55px;
+
 
 }
+
 
 
 
@@ -96,7 +90,7 @@ body{
 }
 .search{
   position: absolute;
-  top:15%;
+  top:22%;
   left:32%;
   transform:translate(-50%, -50%);
   height:50px;
@@ -118,7 +112,7 @@ body{
 }
 .c1{
 position: fixed;
-  top: 525px; left: 250px;
+  top: 550px; left: 250px;
   size:120px;
   color:#028f90 ;
 }
@@ -314,22 +308,23 @@ body{
 .g1{
  font-size: 20px;
  color: #028f90;
- margin-left:-101%;
- top:15%;
+ margin-left:20%;
+
+ top:10%;
 }
 .e1{
  font-size: 15px;
  color: black;
  position:absolute;
- margin-left:45%;
- top:15%;
+ margin-left:46%;
+ top:13%;
 }
 .e2{
  font-size: 16px;
  color: black;
  position:absolute;
- margin-left:57%;
- top:15%;
+ margin-left:58%;
+ top:13%;
 }
 
 

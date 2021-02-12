@@ -46,6 +46,12 @@
 
 
         </tr>
+        <tr>
+          <ul class="c1" *ngIf="Pages" class="nav nav-pills">
+            <li Class="clickable" [ngClass]="i==currentpage?'active':''" *ngFor="let p of Pages;let i=index ">
+              <a (click)="onPagedemogs(i)">{{i+1}}</a></li>
+          </ul>
+        </tr>
 
 
 

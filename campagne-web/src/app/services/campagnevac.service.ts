@@ -88,10 +88,13 @@ export class CampagnevacService {
     return this.httpClient.get("http://localhost:8080/campagnes");
     }
    public getdemogsBykeyword(mc:string,page:number,size:number){
-    return this.httpClient.get(this.host+"/demographies/search/Bynamedemopage?mc="+mc+"&page="+page+"0&size="+size);
+    return this.httpClient.get(this.host+"/enquetes/search/Bynamedemopage?mc="+mc+"&page="+page+"0&size="+size);
+}
+ public getenquetesBykeyword(mc:string,page:number,size:number){
+    return this.httpClient.get(this.host+"/enquetes/search/Bynameenquetepage?mc="+mc+"&page="+page+"0&size="+size);
 }
  public getuserBykeyword(mc:string,page:number,size:number){
-    return this.httpClient.get(this.host+"/allUserspage/search/Bynameuser?mc="+mc+"&page="+page+"0&size="+size);
+    return this.httpClient.get(this.host+"/appUsers/search/Bynameuser?mc="+mc+"&page="+page+"0&size="+size);
 }
   public deleteRessource(url){
       return this.httpClient.delete(url);

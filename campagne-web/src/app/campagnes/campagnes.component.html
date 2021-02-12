@@ -29,9 +29,9 @@
             <th>Statut</th>
             <th>Supprimer</th>
             <th>Modifier</th>
-            <th>Details</th>
-            <th> Taux de couverture</th>
             <th>Statistiques</th>
+            <th> Taux de couverture</th>
+            <th>Details</th>
           </tr>
         </thead>
         <tbody>
@@ -43,10 +43,12 @@
             <td>
               <i class="fa fa-trash" aria-hidden="true" (click)="Deletecampagne(c)"></i></td>
             <td><i class="fa fa-pencil" aria-hidden="true" (click)="Editcampagne(c)"></i></td>
-            <td><i class="fa fa-info-circle" aria-hidden="true" (click)="detailselect(c)"></i></td>
 
-            <td><i class="fa fa-percent" aria-hidden="true" (click)="onselect(c)"> </i> </td>
+
+
             <td><i class="fa fa-bar-chart" aria-hidden="true" (click)="onselectstatistiques(c)"></i></td>
+            <td><i class="fa fa-percent" aria-hidden="true" (click)="onselect(c)"> </i> </td>
+            <td><i class="fa fa-info-circle" aria-hidden="true" (click)="detailselect(c)"></i></td>
           </tr>
           <tr>
             <ul class="c1" *ngIf="pages" class="nav nav-pills">

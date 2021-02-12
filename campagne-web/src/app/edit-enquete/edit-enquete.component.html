@@ -4,13 +4,13 @@
     <h2 class="title">Editer</h2>
     <form  #f="ngForm" (ngSubmit)="onUpdateEnquete(curentproduct)" >
 
-      <div class="input-container">
+      <div class="input-container-1">
         <select class="form-control"  name="content.curentproduct.moughataa.wilaya.name" ngModel (change)="getMoughataas($event.target.value)">
           <option *ngFor="let w of wilayas" [value]="w.id">{{w.name}}</option>
         </select>
       </div>
       <div *ngIf="moughataas">
-        <div class="input-container">
+        <div class="input-container-1">
           <select class="form-control" name="moughataa" ngModel required  (change)="setSelectedMoughataa($event.target.value)">
             <option *ngFor="let m of moughataas" [value]="m.id">{{m.moughataaname}}</option>
           </select>

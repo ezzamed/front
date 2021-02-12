@@ -16,21 +16,12 @@
   </div>
 
 
-<div>
 
-  <table class="es" *ngIf="demo">
-    <tr >
-      <td> <div class="g1">Informations de la Démographie:{{demo.id}}</div></td>
+  <div  class="g1" *ngIf="demo">Informations de la Démographie{{demo.id}}:</div>
 
-      <td class="e1" >Nom:{{demo.name}}</td>
-      <td class="e2">Date: {{demo.date}}</td>
+  <div class="e1" >Nom:{{demo.name}}</div>
+  <div class="e2">Date: {{demo.date}}</div>
 
-
-
-    </tr>
-  </table>
-
-</div>
 
 <div>
   <table  class="content-table" *ngIf="enquetes" >
